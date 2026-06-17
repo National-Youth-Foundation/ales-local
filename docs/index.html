@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ro" x-data="dashboard()" x-init="init()">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alesul meu local — monitorizare consilieri</title>
+  <meta name="description" content="Urmărește activitatea consilierilor locali din România: hotărâri, ședințe, componență politică.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
+  <style>
+    [x-cloak] { display: none !important; }
+    .fade-in { animation: fadeIn .35s ease; }
+    @keyframes fadeIn { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:none; } }
+    .party-bar { transition: width .6s cubic-bezier(.4,0,.2,1); }
+    .tab-active { border-bottom: 3px solid #2563eb; color: #1d4ed8; }
+    .card-hover { transition: box-shadow .2s, transform .2s; }
+    .card-hover:hover { box-shadow: 0 4px 24px rgba(0,0,0,.10); transform: translateY(-2px); }
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #f1f5f9; }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+    .chip { display:inline-flex; align-items:center; gap:4px; font-size:.7rem; font-weight:600; padding:2px 8px; border-radius:99px; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased">
+
+<!-- ░░ HEADER ░░ -->
+<header class="bg-white border-b border-slate-200 sticky top-0 z-40 shadow-sm">
+  <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between gap-3">
+    <div class="flex items-center gap-2">
+      <div class="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center text-white text-sm font-bold">AL</div>
+      <div>
+        <div class="font-bold text-slate-900 text-sm leading-tight">Alesul meu local</div>
+        <div class="text-xs text-slate-500 hidden sm:block">monitorizare consilieri locali</div>
+      </div>
+    </div>
+    <div class="flex items-center gap-2">
+      <span class="chip bg-green-100 text-green-700">
+        <span class="w-1.5 h-1.5 rounded-full bg-green-500 inline-block"></span>
+        <span x-text="uats.length + ' UAT monitorizate'"></span>
+      </span>
+    </div>
+  </div>
+</header>
+
+<!-- ░░ HERO ░░ -->
+<section class="bg-gradient-to-br from-blue-700 to-blue-900 text-white py-8 px-4">
+  <div class="max-w-5xl mx-auto">
+    <h1 class="text-2xl sm:text-3xl font-extrabold mb-1">Ce fac consilierii tăi locali?</h1>
+    <p class="text-blue-200 text-sm sm:text-base max-w-xl">Date publice din registrele primăriilor — hotărâri, ședințe, componență politică. Actualizat automat.</p>
+    <div class="mt-4 flex flex-wrap gap-3" x-show="!loading">
+      <template x-for="u in uats" :key="u.siruta">
+        <button @click="selectUat(u.siruta)"
+          :class="selected?.siruta === u.siruta ? 'bg-white text-blue-800 font-bold' : 'bg-blue-800 text-white hover:bg-blue-700'"
+          class="px-4 py-2 rounded-full text-sm font-semibold transition-colors">
+          <span x-text="u.name"></span>
+          <span class="ml-1 opacity-60 text-xs" x-text="', ' + u.county"></span>
+        </button>
+      </template>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ LOADING ░░ -->
+<div x-show="loading" x-cloak class="flex justify-center items-center py-20">
+  <div class="w-8 h-8 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
+</div>
+
+<!-- ░░ MAIN ░░ -->
+<main x-show="!loading && selected" x-cloak class="max-w-5xl mx-auto px-4 py-6 fade-in">
+
+  <!-- UAT header -->
+  <div class="flex flex-wrap items-center gap-3 mb-6">
+    <div>
+      <h2 class="text-xl font-extrabold text-slate-900" x-text="selected?.name"></h2>
+      <p class="text-sm text-slate-500">
+        <span x-text="ucFirst(selected?.type)"></span> &middot;
+        jud. <span x-text="selected?.county"></span> &middot;
+        <span x-text="(selected?.population||'').toLocaleString('ro')"></span> alegători înscriși (2024)
+      </p>
+    </div>
+    <a :href="selected?.official_site_url" target="_blank" rel="noopener"
+       class="ml-auto text-xs text-blue-600 hover:underline flex items-center gap-1">
+      site oficial ↗
+    </a>
+  </div>
+
+  <!-- ░░ STAT CARDS ░░ -->
+  <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
+    <div class="bg-white rounded-2xl p-4 card-hover border border-slate-100">
+      <div class="text-3xl font-black text-blue-700" x-text="selected?.hcl2026?.length || 0"></div>
+      <div class="text-xs text-slate-500 mt-1 font-medium">hotărâri în 2026</div>
+    </div>
+    <div class="bg-white rounded-2xl p-4 card-hover border border-slate-100">
+      <div class="text-3xl font-black text-indigo-700" x-text="selected?.sessions2026?.length || 0"></div>
+      <div class="text-xs text-slate-500 mt-1 font-medium">ședințe în 2026</div>
+    </div>
+    <div class="bg-white rounded-2xl p-4 card-hover border border-slate-100">
+      <div class="text-3xl font-black text-emerald-700" x-text="selected?.council_size || '—'"></div>
+      <div class="text-xs text-slate-500 mt-1 font-medium">consilieri aleși</div>
+    </div>
+    <div class="bg-white rounded-2xl p-4 card-hover border border-slate-100">
+      <div class="text-3xl font-black text-amber-600" x-text="selected?.election2024?.turnout_pct ? selected.election2024.turnout_pct.toFixed(1) + '%' : '—'"></div>
+      <div class="text-xs text-slate-500 mt-1 font-medium">prezență vot 2024</div>
+    </div>
+  </div>
+
+  <!-- ░░ COMPONENȚĂ POLITICĂ ░░ -->
+  <div class="bg-white rounded-2xl border border-slate-100 p-5 mb-4 card-hover">
+    <h3 class="font-bold text-slate-800 mb-3 text-sm uppercase tracking-wide">Componență politică <span class="text-slate-400 font-normal normal-case">(alegeri 9 iun. 2024)</span></h3>
+    <div class="space-y-2.5">
+      <template x-for="p in selected?.council" :key="p.party">
+        <div class="flex items-center gap-3">
+          <span class="w-12 text-xs font-bold text-right shrink-0"
+                :style="'color:' + partyColor(p.party)" x-text="p.party"></span>
+          <div class="flex-1 bg-slate-100 rounded-full h-5 overflow-hidden">
+            <div class="h-5 rounded-full party-bar flex items-center pl-2"
+                 :style="'width:' + (p.seats / (selected.council_size||1) * 100).toFixed(1) + '%; background:' + partyColor(p.party)">
+              <span class="text-white text-xs font-bold" x-text="p.seats"></span>
+            </div>
+          </div>
+          <span class="text-xs text-slate-500 shrink-0 w-20 truncate" x-text="p.partyFull"></span>
+        </div>
+      </template>
+    </div>
+    <!-- Scaune vizual -->
+    <div class="mt-4 flex flex-wrap gap-1.5" :title="'Total: ' + selected?.council_size + ' consilieri'">
+      <template x-for="p in selected?.council" :key="p.party">
+        <template x-for="s in Array.from({length: p.seats})" :key="s">
+          <div class="w-5 h-5 rounded-full flex items-center justify-center text-white text-[9px] font-bold"
+               :style="'background:' + partyColor(p.party)"
+               :title="p.party">
+          </div>
+        </template>
+      </template>
+    </div>
+    <div class="mt-3 text-xs text-slate-400">
+      Sursa: Autoritatea Electorală Permanentă (roaep.ro)
+    </div>
+  </div>
+
+  <!-- ░░ TABS ░░ -->
+  <div class="bg-white rounded-2xl border border-slate-100 overflow-hidden">
+    <!-- Tab bar -->
+    <div class="flex border-b border-slate-100 overflow-x-auto" style="scrollbar-width:none">
+      <button @click="tab='hcl'" :class="tab==='hcl' ? 'tab-active' : 'text-slate-500 hover:text-slate-800'"
+              class="px-4 py-3 text-sm font-semibold whitespace-nowrap transition-colors">
+        Hotărâri 2026
+        <span class="ml-1 bg-blue-50 text-blue-700 text-xs font-bold px-1.5 py-0.5 rounded-full"
+              x-text="selected?.hcl2026?.length || 0"></span>
+      </button>
+      <button @click="tab='sessions'" :class="tab==='sessions' ? 'tab-active' : 'text-slate-500 hover:text-slate-800'"
+              class="px-4 py-3 text-sm font-semibold whitespace-nowrap transition-colors">
+        Ședințe 2026
+        <span class="ml-1 bg-indigo-50 text-indigo-700 text-xs font-bold px-1.5 py-0.5 rounded-full"
+              x-text="selected?.sessions2026?.length || 0"></span>
+      </button>
+      <button @click="tab='about'" :class="tab==='about' ? 'tab-active' : 'text-slate-500 hover:text-slate-800'"
+              class="px-4 py-3 text-sm font-semibold whitespace-nowrap transition-colors">
+        Alegeri 2024
+      </button>
+    </div>
+
+    <!-- ── Tab: HCL-uri ── -->
+    <div x-show="tab==='hcl'" class="divide-y divide-slate-50">
+      <!-- Search -->
+      <div class="px-4 py-3 bg-slate-50">
+        <input x-model="hclSearch" type="search" placeholder="Caută hotărâre..."
+               class="w-full text-sm bg-white border border-slate-200 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-300">
+      </div>
+      <div class="overflow-y-auto max-h-[420px]">
+        <template x-for="(hcl, i) in filteredHcl()" :key="i">
+          <div class="px-4 py-3.5 hover:bg-slate-50 transition-colors">
+            <div class="flex items-start gap-3">
+              <div class="shrink-0 mt-0.5">
+                <span class="text-xs font-mono font-bold text-slate-400" x-text="hcl.nr || '—'"></span>
+              </div>
+              <div class="flex-1 min-w-0">
+                <p class="text-sm text-slate-800 leading-snug line-clamp-2" x-text="hcl.titlu || 'Fără titlu'"></p>
+                <div class="flex items-center gap-2 mt-1.5 flex-wrap">
+                  <span class="text-xs text-slate-400" x-text="formatDate(hcl.data)"></span>
+                  <span x-show="hcl.tip"
+                        :class="hcl.tip === 'Normativ' ? 'bg-blue-50 text-blue-700' : 'bg-amber-50 text-amber-700'"
+                        class="chip" x-text="hcl.tip"></span>
+                </div>
+              </div>
+              <a x-show="hcl.pdf" :href="hcl.pdf" target="_blank" rel="noopener"
+                 class="shrink-0 text-blue-500 hover:text-blue-700 mt-0.5" title="Descarcă PDF">
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3M3 17V7a2 2 0 012-2h6l2 2h4a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </template>
+        <div x-show="filteredHcl().length === 0" class="px-4 py-8 text-center text-sm text-slate-400">
+          Niciun rezultat
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Tab: Ședințe ── -->
+    <div x-show="tab==='sessions'" class="divide-y divide-slate-50">
+      <div class="overflow-y-auto max-h-[460px]">
+        <template x-for="(s, i) in (selected?.sessions2026 || [])" :key="i">
+          <div class="px-4 py-3.5 hover:bg-slate-50 transition-colors flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-indigo-50 flex items-center justify-center text-indigo-600 shrink-0 font-bold text-xs"
+                 x-text="(selected.sessions2026.length - i)"></div>
+            <div class="flex-1 min-w-0">
+              <p class="text-sm font-medium text-slate-800" x-text="s.titlu || 'Proces-verbal'"></p>
+              <p class="text-xs text-slate-400" x-text="formatDate(s.data)"></p>
+            </div>
+            <a x-show="s.pdf" :href="s.pdf" target="_blank" rel="noopener"
+               class="text-blue-500 hover:text-blue-700 shrink-0" title="Descarcă PDF">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3M3 17V7a2 2 0 012-2h6l2 2h4a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+              </svg>
+            </a>
+          </div>
+        </template>
+        <div x-show="(selected?.sessions2026 || []).length === 0" class="px-4 py-8 text-center text-sm text-slate-400">
+          Nicio ședință disponibilă
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Tab: Alegeri ── -->
+    <div x-show="tab==='about'" class="p-5">
+      <template x-if="selected?.election2024?.election_date">
+        <div>
+          <h4 class="text-sm font-semibold text-slate-700 mb-4">Alegeri locale — <span x-text="selected.election2024.election_date"></span></h4>
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-5">
+            <div class="bg-slate-50 rounded-xl p-3">
+              <div class="text-lg font-black text-slate-800" x-text="(selected.election2024.registered_voters||0).toLocaleString('ro')"></div>
+              <div class="text-xs text-slate-500">alegători înscriși</div>
+            </div>
+            <div class="bg-slate-50 rounded-xl p-3">
+              <div class="text-lg font-black text-slate-800" x-text="(selected.election2024.votes_cast||0).toLocaleString('ro')"></div>
+              <div class="text-xs text-slate-500">voturi exprimate</div>
+            </div>
+            <div class="bg-blue-50 rounded-xl p-3 col-span-2 sm:col-span-1">
+              <div class="text-lg font-black text-blue-700" x-text="(selected.election2024.turnout_pct||0).toFixed(2) + '%'"></div>
+              <div class="text-xs text-slate-500">prezență la vot</div>
+            </div>
+          </div>
+          <!-- Bara prezenta -->
+          <div class="mb-1 flex justify-between text-xs text-slate-500">
+            <span>prezență la vot</span>
+            <span x-text="(selected.election2024.turnout_pct||0).toFixed(1) + '%'"></span>
+          </div>
+          <div class="bg-slate-100 rounded-full h-3 overflow-hidden mb-4">
+            <div class="h-3 rounded-full bg-blue-500 party-bar"
+                 :style="'width:' + (selected.election2024.turnout_pct||0) + '%'"></div>
+          </div>
+          <p class="text-xs text-slate-400">Sursa: api.rezultatevot.ro (Code for Romania / ROAEP)</p>
+        </div>
+      </template>
+      <div x-show="!selected?.election2024?.election_date" class="text-sm text-slate-400 py-4">
+        Date indisponibile
+      </div>
+    </div>
+  </div>
+
+  <!-- ░░ FOOTER NOTE ░░ -->
+  <div class="mt-6 text-center text-xs text-slate-400 pb-4">
+    Date publice din Monitorul Oficial Local via regista.ro &middot;
+    <a href="https://github.com/National-Youth-Foundation/ales-local" target="_blank" class="underline hover:text-slate-600">GitHub</a>
+    &middot; prototip civic
+  </div>
+</main>
+
+<!-- ░░ EMPTY STATE ░░ -->
+<div x-show="!loading && !selected && uats.length > 0" x-cloak class="max-w-5xl mx-auto px-4 py-12 text-center fade-in">
+  <div class="text-5xl mb-3">🏛️</div>
+  <p class="text-slate-600">Selectează un UAT din lista de mai sus</p>
+</div>
+
+<script>
+const PARTY_COLORS = {
+  PSD: '#E53E3E', PNL: '#D69E2E', AUR: '#B7791F',
+  USR: '#3182CE', UDMR: '#38A169', PRO: '#805AD5',
+  ALDE: '#DD6B20', PMP: '#6B46C1', PP: '#2B6CB0',
+};
+function partyColorFn(party) {
+  return PARTY_COLORS[party] || '#94a3b8';
+}
+
+function dashboard() {
+  return {
+    uats: [],
+    selected: null,
+    loading: true,
+    tab: 'hcl',
+    hclSearch: '',
+
+    async init() {
+      const base = document.location.pathname.replace(/\/?$/, '').replace(/\/[^/]*$/, '') || '.';
+      const url = base + '/data/uats.json';
+      try {
+        const resp = await fetch(url);
+        this.uats = await resp.json();
+        if (this.uats.length > 0) this.selectUat(this.uats[0].siruta);
+      } catch(e) {
+        console.error('Eroare la încărcare date:', e);
+      }
+      this.loading = false;
+    },
+
+    selectUat(siruta) {
+      this.selected = this.uats.find(u => u.siruta === siruta) || null;
+      this.tab = 'hcl';
+      this.hclSearch = '';
+    },
+
+    filteredHcl() {
+      if (!this.selected?.hcl2026) return [];
+      const q = this.hclSearch.toLowerCase().trim();
+      if (!q) return this.selected.hcl2026;
+      return this.selected.hcl2026.filter(h =>
+        (h.titlu||'').toLowerCase().includes(q) ||
+        (h.nr||'').toLowerCase().includes(q)
+      );
+    },
+
+    partyColor(party) {
+      return partyColorFn(party);
+    },
+
+    ucFirst(str) {
+      if (!str) return '';
+      return str.charAt(0).toUpperCase() + str.slice(1);
+    },
+
+    formatDate(dateStr) {
+      if (!dateStr) return '';
+      try {
+        const [y, m, d] = dateStr.split('-');
+        const months = ['ian','feb','mar','apr','mai','iun','iul','aug','sep','oct','nov','dec'];
+        return `${+d} ${months[+m-1]} ${y}`;
+      } catch { return dateStr; }
+    }
+  };
+}
+</script>
+</body>
+</html>

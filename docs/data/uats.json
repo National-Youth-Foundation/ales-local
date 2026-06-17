@@ -1,0 +1,899 @@
+[
+  {
+    "siruta": "106065",
+    "name": "Bobicești",
+    "county": "Olt",
+    "type": "comună",
+    "population": 2624,
+    "council_size": 11,
+    "regista_subdomain": "bobicesti",
+    "official_site_url": "https://www.bobicesti.ro",
+    "council": [
+      {
+        "party": "PSD",
+        "partyFull": "Partidul Social Democrat",
+        "seats": 8
+      },
+      {
+        "party": "AUR",
+        "partyFull": "Alianța pentru Unirea Românilor",
+        "seats": 2
+      },
+      {
+        "party": "PNL",
+        "partyFull": "Partidul Național Liberal",
+        "seats": 1
+      }
+    ],
+    "election2024": {
+      "siruta": "106065",
+      "election_date": "2024-06-09",
+      "registered_voters": 2624,
+      "votes_cast": 1521,
+      "valid_votes": 1481,
+      "turnout_pct": 57.97
+    },
+    "hcl2026": [
+      {
+        "nr": "22",
+        "titlu": "probarea principalelor manifestări cultural-artistice, sportive, sociale şi educative , care se desfăşoară &icirc;n comuna Bobicesti &icirc;n anul 2026",
+        "data": "2026-05-21",
+        "tip": "Normativ",
+        "pdf": "https://bobicesti.regista.ro/counter/download_approved_council_decision_files/%242y%2410%2476qByPjaplZwZx8/3M5CBOXfTkN4bgGlivoMnTmZmw2FL3xbXvUme/21932"
+      },
+      {
+        "nr": "21",
+        "titlu": "aprobarea  Regulamentului  pentru aplicarea taxei speciale, utilizarea și exploatarea stațiilor electrice de &icirc;ncărcare a vehiculelor elect",
+        "data": "2026-05-21",
+        "tip": "Normativ",
+        "pdf": "https://bobicesti.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24V9YNwVfpQVCI.P.yFFxWOOeEMK03PojxRYltEhEM.MDbZ7Ohie0RW/21932"
+      },
+      {
+        "nr": "20",
+        "titlu": "aprobarea PROIECTULUI TEHNIC, a indicatorilor tehnico-economici şi a cheltuielilor ce vor fi efectuate &icirc;n cadrul proiectului: &bdquo;Asigurarea infrastructurii pentru transportul verde - puncte de reincarcare vehicule electrice - Infiintarea a doua puncte de reincarcare vehicule electrice in comuna Bobicesti, judetul Olt&rdquo;, &icirc;n cadrul apelului de proiecte&mdash; Planul National de Redresare și Reziliență (PNRR), COMPONENTA I.1.3 - Asigurarea infrastructurii pentru transportul verde &ndash; puncte de re&icirc;ncărcare vehicule electrice Fondul Local",
+        "data": "2026-05-21",
+        "tip": "Normativ",
+        "pdf": "https://bobicesti.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24hF/uiJ79gHbqzxhXaoAQU.eWHHm1JKosSnhDM4Cuf.oB.hjlJn9lW/21932"
+      },
+      {
+        "nr": "19",
+        "titlu": "Proiect de hotăr&acirc;re privind &icirc;nsușirea Acordului de cooperare privind organizarea și exercitarea activităţii serviciului administrativ",
+        "data": "2026-05-06",
+        "tip": "Normativ",
+        "pdf": null
+      },
+      {
+        "nr": "18",
+        "titlu": "Proiect de hotăr&acirc;re privind aprobarea Regulamentului pentru emiterea autorizației de funcționare pentru desfășurarea jocurilor de noroc de tip loto și pariuri sportive pe raza administrative teritorială a comunei Bobicești",
+        "data": "2026-05-06",
+        "tip": "Normativ",
+        "pdf": "https://bobicesti.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24De60BKGQCZIrVby/KcbpcOeCFDJ.flrYd3jt4mf.Sx5HzlsDYKG1./21932"
+      },
+      {
+        "nr": "17",
+        "titlu": "Proiect de hotăr&acirc;re privind aprobarea PLAN DE DEZVOLTARE A SERVICIILOR SOCIALE COMUNA BOBICEȘTI, JUDETUL OLT",
+        "data": "2026-05-06",
+        "tip": "Normativ",
+        "pdf": null
+      },
+      {
+        "nr": "16",
+        "titlu": "Proiect de hotăr&acirc;re privind aprobarea Strategiei de dezvoltare a serviciilor sociale acordate la nivelul comunei Bobicești pentru perioada   2026 -2031",
+        "data": "2026-05-06",
+        "tip": "Normativ",
+        "pdf": null
+      },
+      {
+        "nr": "15",
+        "titlu": "Proiect de hotăr&acirc;re privind aprobarea procedurii de publicarea listei contribuabililor persoane fizice și juridice care &icirc;nregistrează obligații fiscale restante la bugetul local",
+        "data": "2026-05-06",
+        "tip": "Normativ",
+        "pdf": null
+      },
+      {
+        "nr": "14",
+        "titlu": "Proiect de hotăr&acirc;re privind &Icirc;ncheierea contului de execuție bugetară trim I 2026",
+        "data": "2026-05-06",
+        "tip": "Normativ",
+        "pdf": null
+      },
+      {
+        "nr": "13",
+        "titlu": "Proiect de hotăr&acirc;re aprobarea STRATEGIEI ANUALE DE ACHIZITIE PUBLICA și aprobarea Programului anual al achiziţiilor publice, pentru anul 202",
+        "data": "2026-05-06",
+        "tip": "Normativ",
+        "pdf": null
+      },
+      {
+        "nr": "12",
+        "titlu": "Proiect de hotărâre referitor la: aprobarea bugetului local  pe anul 2026 și a estimărilor pentru anii 2027 -2029 și al Serviciului public de gospodărire comunală Bobicești",
+        "data": "2026-05-06",
+        "tip": "Normativ",
+        "pdf": null
+      },
+      {
+        "nr": "11",
+        "titlu": "Alegere presedinte sedinta",
+        "data": "2026-05-06",
+        "tip": "Normativ",
+        "pdf": "https://bobicesti.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24CRdQk6B02CgTWRlnIysf0u8UzDS8T4/88mPaIAn4miK5M1R44J2Mu/21932"
+      },
+      {
+        "nr": "10",
+        "titlu": "Reorganizarea aparatului de specialitate al primarului comunei Bobicești ca urmare a adoptării OUG nr.7/2026, aprobarea organigramei și a ștatului de funcții a aparatului de specialitate al primarului comunei Bobicești",
+        "data": "2026-04-14",
+        "tip": "Normativ",
+        "pdf": "https://bobicesti.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24AIUjJehmothRuvVY0FrRQ.0NIEQjNf7E0i8w7.2HEXkCEdCCmTQpW/21932"
+      },
+      {
+        "nr": "9",
+        "titlu": "stadiul de &icirc;nscriere a datelor &icirc;n Registrul agricol al comunei Bobicești, pentru trimestrul I al anului 2026 și stabilirea măsurilor pentru eficientizarea acestei activități &icirc;n anul 2026",
+        "data": "2026-03-31",
+        "tip": "Normativ",
+        "pdf": "https://bobicesti.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24H0wATwWMCq/ayvRl8ID5o.eYZDPXpsY.igSLgr6GfdIC/zigOCyZm/21932"
+      },
+      {
+        "nr": "8",
+        "titlu": "aprobarea Programului Cultural al Bibliotecii pe anul 2025",
+        "data": "2026-02-26",
+        "tip": "Normativ",
+        "pdf": "https://bobicesti.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24PHAenOYrrYt2W12sPKTWgO5YXOkMCCzIYcOWwKbKwNMjMhpfynK4C/21932"
+      },
+      {
+        "nr": "7",
+        "titlu": "aprobarea taxei de salubritate pentru anul 2026",
+        "data": "2026-02-26",
+        "tip": "Normativ",
+        "pdf": "https://bobicesti.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24jrSvSgVds9psjso5d3fc6OmIPqXEOjS/C56vuPlBuquOmNy9yPi.u/21932"
+      },
+      {
+        "nr": "6",
+        "titlu": "aprobarea contului de executie bugetara trimestrul IV",
+        "data": "2026-02-26",
+        "tip": "Normativ",
+        "pdf": "https://bobicesti.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24o63gABMqCIHcg6cRAjlAluN9C.AA2jgHPc3mfKT9ERP6Iuc6VbwYC/21932"
+      },
+      {
+        "nr": "5",
+        "titlu": "alegere președinte șediință",
+        "data": "2026-02-26",
+        "tip": "Normativ",
+        "pdf": "https://bobicesti.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24/LlQZqKMPuOWOCaQpIimOu0HJI2qH.Qpp3aKtusHg84ESKU/PqdUK/21932"
+      },
+      {
+        "nr": "4",
+        "titlu": "stadiul de &icirc;nscriere a datelor &icirc;n Registrul agricol al comunei Bobicești, pentru trimestrul IV al anului 2025 și stabilirea măsurilor pentru eficientizarea acestei activități &icirc;n anul 2026",
+        "data": "2026-01-29",
+        "tip": "Normativ",
+        "pdf": "https://bobicesti.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24rGAljSMn9ZJP0pJSOvmuKuldqNLUL4f2Nh6tGwYD09lZPYc8ZPF9m/21932"
+      },
+      {
+        "nr": "3",
+        "titlu": "aprobare Program acțiune comunitară pentru anul 2026",
+        "data": "2026-01-29",
+        "tip": "Normativ",
+        "pdf": "https://bobicesti.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24HHvtK.RRA2YUCPXEGgnRtOWeAVfWIX7afCBwsHKbgN9fDZTCgqm0m/21932"
+      },
+      {
+        "nr": "2",
+        "titlu": "aprobarea planului de activităţi sau lucrări de interes local pentru anul 2026 privind beneficiarii de venit minim de incluziune",
+        "data": "2026-01-29",
+        "tip": "Normativ",
+        "pdf": "https://bobicesti.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24cpzDYcdLvfwux59Y0L6HmelWn6HKKDdnFpLrBFT3Y5Sjd./YDT3Tq/21932"
+      },
+      {
+        "nr": "1",
+        "titlu": "acoperirea definitivă din excedentul bugetului local a deficitului secțiunii de dezvoltare &icirc;n anul 20225",
+        "data": "2026-01-29",
+        "tip": "Normativ",
+        "pdf": "https://bobicesti.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24lq6yw/l.hdp1pptzmN2wEe28sjDmJvYgJML9kMIL0RmPiwHpASeiC/21932"
+      }
+    ],
+    "sessions2026": [
+      {
+        "titlu": "PROCES VERBAL ȘEDINȚĂ EXTRAORDINARĂ LUNA MAI",
+        "data": "2026-05-22",
+        "pdf": "https://bobicesti.regista.ro/counter/download/phpNheBnj%242y%2410%24Q2PEEWFnpmC.f0jk985axuF.5jih35PUJrXSNONHcOUb5NsDNVTR."
+      },
+      {
+        "titlu": "PROCES VERBAL ȘEDINȚA ORDINARĂ CONSILIUL LOCAL LUNA MAI",
+        "data": "2026-05-08",
+        "pdf": "https://bobicesti.regista.ro/counter/download/phpGHLpfL%242y%2410%241uH.dgx5A21PuVSM4As2zegnMCad87S3CzQ.qx6GAKtSdUSWlK/bi"
+      },
+      {
+        "titlu": "Proces verbal ședință ordinară consiliu local",
+        "data": "2026-04-20",
+        "pdf": "https://bobicesti.regista.ro/counter/download/phpgHGnnC%242y%2410%24U7GIFsc5th0aH.Lck6GakuwYEXDSF19AwdFcCRL8caMH6lsgzVjF2"
+      },
+      {
+        "titlu": "Proces verbal ședința ordinară luna martie",
+        "data": "2026-04-02",
+        "pdf": "https://bobicesti.regista.ro/counter/download/phpGggJmh%242y%2410%242uFueC5OvbF34iHZSG1p6OQ4ACXaMXlGthTQWKnWnv9WunCowK4Pi"
+      },
+      {
+        "titlu": "Proces verbal ședință ordinară Consiliul Local",
+        "data": "2026-02-27",
+        "pdf": "https://bobicesti.regista.ro/counter/download/phpNcbblo%242y%2410%24r3r9EJoup/.jOkzpXbVYcekZ92XBDgLRtl3bmXYuOpeaOTbCFCB8i"
+      },
+      {
+        "titlu": "Proces verbal ședința ordinară luna ianuarie 2026",
+        "data": "2026-02-02",
+        "pdf": "https://bobicesti.regista.ro/counter/download/phpmoLLal%242y%2410%24iX0Ll1zpK7KUeZYu/8chsu10EcluZfgpViBE3yPIkHoeerX2tYNGO"
+      }
+    ]
+  },
+  {
+    "siruta": "106249",
+    "name": "Balș",
+    "county": "Olt",
+    "type": "oraș",
+    "population": 18200,
+    "council_size": 17,
+    "regista_subdomain": "bals",
+    "official_site_url": "https://bals.regista.ro",
+    "council": [
+      {
+        "party": "PSD",
+        "partyFull": "Partidul Social Democrat",
+        "seats": 10
+      },
+      {
+        "party": "PNL",
+        "partyFull": "Partidul Național Liberal",
+        "seats": 5
+      },
+      {
+        "party": "AUR",
+        "partyFull": "Alianța pentru Unirea Românilor",
+        "seats": 2
+      }
+    ],
+    "election2024": {
+      "siruta": "106249",
+      "election_date": "2024-06-09",
+      "registered_voters": 16422,
+      "votes_cast": 7769,
+      "valid_votes": 7358,
+      "turnout_pct": 47.31
+    },
+    "hcl2026": [
+      {
+        "nr": "80",
+        "titlu": "Rectificarea bugetului local de venituri și cheltuieli al orașului Balș și a listei de investiții pe anul 2026",
+        "data": "2026-06-09",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24t2cCILrWS1xgd1lRRkzwVOCpRegRHeBMLso0GVtGpS8y0W8WSFL4u/4284"
+      },
+      {
+        "nr": "79",
+        "titlu": "Aprobarea prelungirii Protocolului de colaborare &icirc;ncheiat &icirc;ntre Serviciul Public de Gestionare a C&acirc;inilor Fără Stăp&acirc;n Balș și U.A.T. Comuna Baldovinești",
+        "data": "2026-05-28",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24Y4h.3U4Dr4/U0aNs1E4ppeIsynb3Cqlawbl0cqBZX5pFbP6BQ0poC/4284"
+      },
+      {
+        "nr": "78",
+        "titlu": "Aprobarea organizării și desfășurării evenimentelor prilejuite cu ocazia Rusaliilor- Festivalul ,, Călușul Oltenesc,, și a cheltuielilor aferente",
+        "data": "2026-05-28",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24dt.23Bc9daGDGka7FDFumu0yQp4gswEJzHvpmyXrFOAJ67UNMIQ6i/4284"
+      },
+      {
+        "nr": "77",
+        "titlu": "Aprobarea organizării și desfășurării evenimentelor prilejuite de ziua de 1 Iunie-Ziua copilului și a cheltuielilor aferente",
+        "data": "2026-05-28",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24IK4Temv1ZJiv4h7Zsodm0.WAHpb.O7q3GLw9J442e2RFGcgWcLM.2/4284"
+      },
+      {
+        "nr": "76",
+        "titlu": "Aprobarea actualizării indicatorilor tehnico-economici, a devizului general actualizat și asigurarea cofinanțării din bugetul local pentru obiectivul de investiții:,,CONSTRUIRE LOCUINȚE SOCIALE P+5E &Icirc;N ORAȘUL BALȘ, JUDEȚUL OLT,,.",
+        "data": "2026-05-28",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24BNTpRp6ASxk2ya94TExnve41nhxPs1qoA4GYm3U3S2uK83WGSIfDi/4284"
+      },
+      {
+        "nr": "75",
+        "titlu": "Rectificarea bugetului local de venituri și cheltuieli al orașului Balș și a listei de investiții pe anul 2026",
+        "data": "2026-05-28",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24kuGlQvedgJXEq47E6IK2SeijjRI58pIePvyKnx85/2jaBJ9GvJxOa/4284"
+      },
+      {
+        "nr": "74",
+        "titlu": "Aprobarea contului anual de execuție a bugetului fondurilor externe nerambursabile pe anul 2025",
+        "data": "2026-05-28",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24nK7YEFON1QO8zxsgJ3BYdur20cTYQ1dtHHsgsdM8c2emQoEJvwyGe/4284"
+      },
+      {
+        "nr": "73",
+        "titlu": "Aprobarea contului anual de execuție a bugetului fondurilor externe nerambursabile pe anul 2025",
+        "data": "2026-05-28",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24pr.Gs0nmgCwwu9UPTnJo3eiOkW8OWa6WrzkXCbsRw2/cTy.xKSac2/4284"
+      },
+      {
+        "nr": "72",
+        "titlu": "Aprobarea contului anual de execuție a bugetului instituțiilor publice finanțate integral sau parțial din venituri proprii pe anul 2025",
+        "data": "2026-05-28",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24Mx7MnGkfpKA8i0UtRd.wNefrm5ZMLaczmQ8dwpHkvUUlxAEJ2EQuS/4284"
+      },
+      {
+        "nr": "71",
+        "titlu": "Aprobarea contului anual de execuție a bugetului local al Orașului Balș pe anul 2025",
+        "data": "2026-05-28",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%246pU2CK7WexZgXInYbIS.nub32odJJ2I9fdT6RqFnOJd6Wv/Gt61a6/4284"
+      },
+      {
+        "nr": "70",
+        "titlu": "Acordarea AUTORIZAȚIEI DE FUNCȚIONARE privind exercitarea activităților de jocuri de noroc pe raza Orașului Balș, S.C. Hattrick Online S.R.L. cu sediul social &icirc;n orașul București, str.Splaiul Unirii nr.165, clădirea TN Offices 2, et. 5 - punct de lucru Balș, str.N.Bălcescu nr.193, bl.M1, parter, județul Olt",
+        "data": "2026-05-21",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24/O9yuZGEe3Z59StFvgSbjeEOmBbHKuACNA6xeI8gRige65tg3dZAK/4284"
+      },
+      {
+        "nr": "69",
+        "titlu": "Acordarea AUTORIZAȚIEI DE FUNCȚIONARE privind exercitarea activităților de jocuri de noroc pe raza Orașului Balș, S.C. Hattrick Bet S.R.L. cu sediul social &icirc;n orașul București, str.Splaiul Unirii nr.165, clădirea TN Offices 2, et. 5 și 7 &ndash; punct de lucru Balș, str.N.Bălcescu nr.193, bl.M1, parter, județul Olt.",
+        "data": "2026-05-21",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24YO7xKwm8erC6EPwj9Wulqu3xt3sIRyOJb452G/ah5Qv66cMhVL9a2/4284"
+      },
+      {
+        "nr": "68",
+        "titlu": "Acordarea AUTORIZAȚIEI DE FUNCȚIONARE privind exercitarea activităților de jocuri de noroc pe raza Orașului Balș , S.C.Digital Slots Club S.R.L. cu sediul social &icirc;n orașul Lugoj, județul Timiș &ndash; punct de lucru Balș, str.N.Bălcescu nr.141, parter, Bl.F1,județul Olt",
+        "data": "2026-05-21",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24//Ke9R6/l.7152mKskFOU.PugUPLuhc/aMJWCHIUAocxyZbJzCD0O/4284"
+      },
+      {
+        "nr": "67",
+        "titlu": "Acordarea AUTORIZAȚIEI DE FUNCȚIONARE privind exercitarea activităților de jocuri de noroc pe raza Orașului Balș , S.C.Digital Slots Club S.R.L. cu sediul social &icirc;n orașul Lugoj, județul Timiș &ndash; punct de lucru Balș, Piața Turnuri nr.199A, bl.O, județul Olt",
+        "data": "2026-05-21",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24VrSpDtcHSZnqgulX/q7.C.cvtLZtT4942zgElkkR1pBNIpK04qrXa/4284"
+      },
+      {
+        "nr": "66",
+        "titlu": "Acordarea AUTORIZAȚIEI DE FUNCȚIONARE privind exercitarea activităților de jocuri de noroc pe raza Orașului Balș , S.C.Digital Slots Club S.R.L. cu sediul social &icirc;n orașul Lugoj, județul Timiș &ndash; punct de lucru Balș, str.N. Titulescu nr.8 Bis, județul Olt",
+        "data": "2026-05-21",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24JYY4Lj6SK3J4BCxC.3FHIew5wgK4Mf4DrQoEDks4fw5fMqs6B6MxC/4284"
+      },
+      {
+        "nr": "65",
+        "titlu": "Acordarea AUTORIZAȚIEI DE FUNCȚIONARE privind exercitarea activităților de jocuri de noroc pe raza Orașului Balș , S.C.Digital Slots Club S.R.L. cu sediul social &icirc;n orașul Lugoj, județul Timiș &ndash; punct de lucru Balș, str.N.Bălcescu nr.131, parter, Bl.K, județul Olt.",
+        "data": "2026-05-21",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24QIuXUXVcQUWCiO683bmndeH2IKgu3eEfx1YUEyRTdp/UkWFizQlA6/4284"
+      },
+      {
+        "nr": "64",
+        "titlu": "Acordarea AUTORIZAȚIEI DE FUNCȚIONARE privind exercitarea activităților de jocuri de noroc pe raza Orașului Balș , S.C.Digital Slots Club S.R.L. cu sediul social &icirc;n orașul Lugoj, județul Timiș &ndash; punct de lucru Balș, str.N.Bălcescu nr.1A, județul Olt",
+        "data": "2026-05-21",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24zNK7F1lHwAPOQKyEm0TAR.XZn3Ccvn7J5NokSXmS35C7Fl74NzgP6/4284"
+      },
+      {
+        "nr": "63",
+        "titlu": "Acordarea AUTORIZAȚIEI DE FUNCȚIONARE privind exercitarea activităților de jocuri de noroc pe raza Orașului Balș , S.C.Digital Slots Club S.R.L. cu sediul social &icirc;n orașul Lugoj, județul Timiș &ndash; punct de lucru Balș, str.Mihai Viteazu nr.180, județul Olt",
+        "data": "2026-05-21",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24X6tCRl.8I.l2cs322wsDwOyWVXoy2iUQ1zJctd1SikBwiHZ/xzOJy/4284"
+      },
+      {
+        "nr": "62",
+        "titlu": "Aprobarea constiturii unei garanții imobiliare &icirc;n vederea eșalonării la plată a obligațiilor fiscale ale Orașului Balș",
+        "data": "2026-05-18",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24ln2VcplgrTAenYdZBeD1h.pQS3lK1GCbq/jXjMrwnJyhYU.2yd/j./4284"
+      },
+      {
+        "nr": "61",
+        "titlu": "Achiziția unor servicii de asistență juridică a Unitatii Administrativ -Teritoriale Orașul Balș",
+        "data": "2026-05-18",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%245dUsYpxTJWrg8Kl0UACQ9uP4wwq1f3.AxxMTSgcMp3WAw8zXsP9c6/4284"
+      },
+      {
+        "nr": "57",
+        "titlu": "Aprobare Regulament Jocuri de Noroc",
+        "data": "2026-05-18",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24m587q1b3KM3vDcf14FvOUuRp5MFef80NaEGUmWvBg3AfVwUr/8wJu/4284"
+      },
+      {
+        "nr": "60",
+        "titlu": "Aprobarea taxei de reabilitare termică pentru blocurile M1, M2, M3, str.Nicolae Bălcescu nr.193,195,197 din orașul Balș, județul Olt",
+        "data": "2026-05-11",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%246P4cA8ZyFRmNMpsh9hBTG.4qc/wLOCAbfK9zS23N89kS4WaCJ32ku/4284"
+      },
+      {
+        "nr": "59",
+        "titlu": "Aprobarea Protocolului de colaborare &ndash;cadru &icirc;ncheiat &icirc;ntre Serviciul Public de Gestionare a C&acirc;inilor Fără Stăp&acirc;n Balș și U.A.T. Comuna Ob&acirc;rșia",
+        "data": "2026-05-11",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%245Ul7qaBXEm/F4.sTQeKZCO6ZVU6kAz1tdQjnFxbqRHmVHCLGfcCfK/4284"
+      },
+      {
+        "nr": "58",
+        "titlu": "Suplimentarea numărului locurilor de așteptare a taxiurilor &icirc;n raport cu numărul de autorizații taxi atribuite și stabilirea noilor amplasamente",
+        "data": "2026-05-11",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%245YD.oRYB/c.JUO1WOYgjJO/rfeIablsmfEhWCl8nKzf.nKN/Q7lhy/4284"
+      },
+      {
+        "nr": "56",
+        "titlu": "Aprobarea Statului de funcții și a numărului de posturi pe anul 2026 ( anexa nr.1), cu modificările solicitate &icirc;n raportul de specialitate pentru Spitalul Orășenesc Balș",
+        "data": "2026-05-11",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24Q.v.GzO7Igp12Fgzyd0G8ea65KM/E/w7lfm7eqJGAi4uTqp4GNjea/4284"
+      },
+      {
+        "nr": "55",
+        "titlu": "Modificarea organigramei și a statului de funcții ale Clubului Sportiv Orășenesc Balș",
+        "data": "2026-05-11",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24lgouMUXdoCYjCkw6xeWuZeoZpa/MyRr4oO9cl5Or69UnSOJ.h4jdi/4284"
+      },
+      {
+        "nr": "54",
+        "titlu": "Aprobarea bugetului creditelor interne pe anul 2026",
+        "data": "2026-05-11",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24f.N0qPAkC0Cysrep1zO.ZOZaxdq1WhgAYOV.y2ci1Ot3RA0gr6nwW/4284"
+      },
+      {
+        "nr": "53",
+        "titlu": "Aprobarea bugetului institutiilor publice finantate integral sau partial din venituri proprii pe anul 2026, estimări 2027-2029",
+        "data": "2026-05-11",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24WbULB0WSbcfLaA8FBCqpt.WD5.VBNobD.T2A8U0MkD2d8Ej8D1Eze/4284"
+      },
+      {
+        "nr": "52",
+        "titlu": "Aprobarea bugetului local de venituri şi cheltuieli al Orașului Balș pe anul 2026 ,estimări 2027-2029",
+        "data": "2026-05-11",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%248hx28IXp4swJW4zzGvx97O6r6s.6wvt8qCeYkJxrBHyhHOcTut28G/4284"
+      },
+      {
+        "nr": "51",
+        "titlu": "Utilizarea excedentului anual &icirc;n anul 2026, rezultat la &icirc;ncheierea exercițiului bugetar al anului 2025",
+        "data": "2026-05-11",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24ZAc0XcvK1Qf/UZLMESskp.PGlEgYkx4TVBayzjgiX4a4FdMOySRe2/4284"
+      },
+      {
+        "nr": "50",
+        "titlu": "Aprobarea contului de execuție a bugetului creditelor interne pentru trimestrul I al anului 2026",
+        "data": "2026-04-29",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24nQfFUGfcIO2HaA2c5anRPeWXAu6C/1DYe6QKf./TJyagjVpgiHCQG/4284"
+      },
+      {
+        "nr": "49",
+        "titlu": "Aprobarea contului de execuție a bugetului instituțiilor publice finanțate integral sau parțial din venituri proprii pentru trimestrul I al anului 2026",
+        "data": "2026-04-29",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24Psyp../K4n8OXqp8R.iZFu1Cn76mRI0uiiWeXl0vhnXFCsaDfgR/m/4284"
+      },
+      {
+        "nr": "48",
+        "titlu": "Aprobarea contului de execuție a bugetului local de venituri și cheltuieli al Orașului Balș pentru trimestrul I al anului 2026",
+        "data": "2026-04-29",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24zT2CXGAMwnJ0prXePveSvOoTQ4TstO1iRC25WxRMaLaP7qs62GrNe/4284"
+      },
+      {
+        "nr": "47",
+        "titlu": "Alegerea președintelui de ședință al Consiliului Local al Orașului Balș",
+        "data": "2026-04-29",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24M6XIy1ka7ordWIENJfyjPuJXE3Pbr7T4TFOeqCg8nTPkLPjGz2kBK/4284"
+      },
+      {
+        "nr": "46",
+        "titlu": "Aprobarea v&acirc;nzării prin licitație publică a 2 parcele de teren extravilan, proprietate privată a orașului Balș, situate &icirc;n orașul Balș, județul Olt",
+        "data": "2026-04-29",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24IKr2CqMe65ZgRJPWxw2qze8UahVp.vgC4KvNHPEUOxy40tCtg7zl6/4284"
+      },
+      {
+        "nr": "45",
+        "titlu": "Aprobarea procedurii de stabilire, declarare și achitare a taxei de reabilitare termică pentru blocurile M1, M2, M3, strada N. Bălcescu nr. 193, 195, 197, localitatea Balș.",
+        "data": "2026-04-29",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24AnC.2GEd9Yx9mtQNt5A39Owy03hhKbX/perdKKApEl6QOzP6cN6NK/4284"
+      },
+      {
+        "nr": "44",
+        "titlu": "Modificarea Hotăr&acirc;rii Consiliului Local al orașului Balș nr.37/31.03.2026 privind aprobarea actualizarii indicatorilor tehnico-economici , a actualizării devizului general aprobati prin HCL 135/04.09.2025 si aprobarea documentatiei tehnice faza PT +DDE pentru proiectul : &bdquo;Construire si dotare Centru de ingrijiri paliative in cadrul Spitalului Orasenesc Bals&rdquo;",
+        "data": "2026-04-17",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24jtdCQ25ehN3zIeEwv1Ac3.i66qiENckfb/Kmjqif7Ye6SSw7QqFXW/4284"
+      },
+      {
+        "nr": "43",
+        "titlu": "Concesionarea prin atribuire directă către Asociația Partida Romilor &ldquo;Pro-Europa &rdquo; a terenului proprietate privată a orașului Balș , &icirc;n suprafață de 317 mp , &icirc;nscris &icirc;n CF nr. 60413 , nr. cadastral 60413 , situat &icirc;n orașul Balș, str. Popa Șapcă , județul Olt",
+        "data": "2026-04-17",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24ZyUqngY/vp9mnMN/rRDR4eHeTLp0Ea76YNPY.LuFRL0yZZ1OaUsoi/4284"
+      },
+      {
+        "nr": "42",
+        "titlu": "Reorganizarea aparatului de specialitate al primarului Orașului Balș și a serviciilor publice din subordinea Consiliului Local Balș, aprobarea organigramei și a statului de funcții",
+        "data": "2026-04-17",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24IoIMi1Bi64y7Zao978OLiOgpYN4HamTPOmPoFzI0CwdqYofgN58C./4284"
+      },
+      {
+        "nr": "41",
+        "titlu": "Reorganizarea Clubului Sportiv Orășenesc Balș, aprobarea organigramei și a statului de funcții",
+        "data": "2026-04-17",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%244O0zmOMFeg86Vp/J45m59eybDIufyOuDeYGjQW8EUerMwUUpRaOwS/4284"
+      },
+      {
+        "nr": "40",
+        "titlu": "Reorganizarea Serviciului Public Comunitar de Evidența Persoanelor din subordinea Consiliului Local al Orașului Balș,aprobarea organigramei,statului de funcții și Regulamentul de organizare și funcționare a Serviciului Public Comunitar de Evidența Persoanelor Balș",
+        "data": "2026-04-17",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24QoWlPoZEtLqbQffcVNLZuOkzLXghZ/kRnZcV8jtDwPEDUECjgzAuq/4284"
+      },
+      {
+        "nr": "39",
+        "titlu": "Aprobarea contractării unui &icirc;mprumut &icirc;n valoare de 2.006.691,00 lei &icirc;n conformitate cu prevederile art. XXXI din Ordonanţa de urgenţă a Guvernului nr. 89/2025 pentru modificarea si completarea Legii 227/2015 privind Codul Fiscal, reglementarea unor mascuri fiscal-bugetare, precum si pentru modificarea si completarea unor acte normative",
+        "data": "2026-04-17",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24kN6M7TOdLWDvEj4o8sIAVO/LlJZlZhBKL69G3VyILIZOq514eKlHa/4284"
+      },
+      {
+        "nr": "38",
+        "titlu": "Aprobarea Protocolului de colaborare &ndash;cadru &icirc;ncheiat &icirc;ntre Serviciul Public de Gestionare a C&acirc;inilor Fără Stăp&acirc;n Balș și U.A.T. Comuna Dobrețu ,U.A.T. Comuna V&acirc;lcele și U.A.T. Comuna Leleasca",
+        "data": "2026-03-31",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24hsTsQa8jZ3dSWSFtjfP2yuf9dU6y3U4rakxJOTGGyazFgAFsB8EG2/4284"
+      },
+      {
+        "nr": "37",
+        "titlu": "aprobarea actualizarii indicatorilor tehnico-economici , a actualizării devizului general aprobati prin HCL 135/04.09.2025 si aprobarea documentatiei tehnice faza PT +DDE pentru proiectul : &bdquo;Construire si dotare Centru de ingrijiri paliative in cadrul Spitalului Orasenesc Bals&rdquo;",
+        "data": "2026-03-31",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24wUWsnq5UtumlxwuP2xN5s.hexYPn9Ee2t3qu7wYlxYZAqHYzyledm/4284"
+      },
+      {
+        "nr": "36",
+        "titlu": "Constatarea &icirc;ncetării de drept a mandatului de consilier local al domnului Mohorea Ion și vacantarea locului de consilier local deținut de acesta",
+        "data": "2026-03-23",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24ITx/huSqXyl0NRQ3aovmo.AbGPexMiAdSB4tUdezOmQMYkHg4eW5O/4284"
+      },
+      {
+        "nr": "35",
+        "titlu": "Aprobarea contractării unei finanțări rambursabile interne &icirc;n valoare de 2.500.000,00 lei pentru asigurarea finanțării proiectelor de investiții de interes local",
+        "data": "2026-03-23",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24AUlkHgM1t7nogevcSBXfQ.0HChC4x5lstsYtpToGkDFzjz8UnNtSG/4284"
+      },
+      {
+        "nr": "34",
+        "titlu": "Aprobarea cofinanțării din bugetul local a sumei de 563.363,29 lei pentru dotarea cu aparatură medicală &icirc;n cadrul Spitalului Orășenesc Balș",
+        "data": "2026-03-23",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24s.gVv/kT6CZ4So/xzs7PDeSiGNYvIeTuZ2/uUplyIvC8YZN8laaE./4284"
+      },
+      {
+        "nr": "33",
+        "titlu": "Aprobarea Statului de funcții și a numărului de posturi pe anul 2026, cu modificările solicitate &icirc;n raportul de specialitate pentru Spitalul Orășenesc Balș",
+        "data": "2026-03-23",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24oruq2IE5m/PZuzZnQY5b1OJ1HwIgIxaL9HUPV7skWO8qSq5fkh.Z2/4284"
+      },
+      {
+        "nr": "32",
+        "titlu": "Atestarea inventarului bunurilor care alcătuiesc domeniul privat al orașului Balș, județul Olt",
+        "data": "2026-03-23",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24snCVo/MpJX5LbuME1kKGlO.WwJ72H7Sk85QQzud5652el6V2eOEiC/4284"
+      },
+      {
+        "nr": "31",
+        "titlu": "Aprobarea operațiunii de apartamentare a imobilului av&acirc;nd numărul cadastral 60166-C1, situat &icirc;n strada Nicolae Titulescu nr. 2A , orașul Balș , județul Olt",
+        "data": "2026-03-23",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24KeN3a.XEeFEfXuKR2DFmquOojjccVYdwAguldW2W2YBKTIWg5l3tS/4284"
+      },
+      {
+        "nr": "30",
+        "titlu": "Aprobarea indicatorilor tehnico- economici actualizati si a devizului general actualizat după &icirc;ncheierea contractelor de achizitie publica pentru obiectivul &ldquo;Construire locuințe sociale &icirc;n orașul Balș, etapa II, județul Olt&rdquo;",
+        "data": "2026-03-23",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24m5igbmp0bJQR/Sp0rheN0eiA0WlPsCKdg96u3OGUj7dR5KnRFYb2i/4284"
+      },
+      {
+        "nr": "29",
+        "titlu": "Aprobarea actualizării indicatorilor tehnico-economici și a devizului general pentru obiectivul de investiții: &bdquo;Extindere canalizare cartiere Vartina, Romana, Corbeni in orasul Bals, judetul Olt&rdquo;, aprobat pentru finanțare prin Programul național de investiții &bdquo;Anghel Saligny&rdquo;",
+        "data": "2026-03-23",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24v8g3/pBM28dcbuq/MrKk3OFbsL0vV3Zb0cQJH7C2EWuZTend7sCAC/4284"
+      },
+      {
+        "nr": "28",
+        "titlu": "Implementarea proiectului ,, Achiziționare autoutilitară pentru Serviciul Gospodărire Urbană &ndash; Sere - Spații verzi din oraș Balș, județul Olt,, , a indicatorilor tehnico &ndash; economici și a cheltuielilor legate de proiect",
+        "data": "2026-03-10",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%245ohSOHjbmCaRXKxaa7aUlO.W.j.cdDkGV9d4bAKp0BN1zL2oMxugq/4284"
+      },
+      {
+        "nr": "20",
+        "titlu": "Modificarea HCL nr. 123/31.07.2024 privind aprobarea proiectului &ldquo;EFICIENȚĂ ENERGETICĂ CLĂDIRE CU PATRU BLOCURI ( BLOC 6, BLOC 7, BLOC 8 , BLOC 9, SITUATE &Icirc;N STR. NICOLAE BĂLCESCU SI I. CREANGĂ), ORAȘUL BALȘ, JUDEȚ OLT&ldquo; și a cheltuielilor actualizate aferente proiectului",
+        "data": "2026-03-02",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24LcKEwPLk5PFB7TvBW8JR4ey9dZiyYgRRPkm1vEMGOO0Tnw9WOG6Mq/4284"
+      },
+      {
+        "nr": "19",
+        "titlu": "Aprobarea actualizării indicatorilor tehnico-economici și a devizului general pentru obiectivul de investiții: &ldquo;EFICIENȚĂ ENERGETICĂ CLĂDIRE CU PATRU BLOCURI ( BLOC 6, BLOC 7, BLOC 8 , BLOC 9, SITUATE &Icirc;N STR.NICOLAE BĂLCESCU SI I. CREANGĂ), ORAȘUL BALȘ, JUDEȚ OLT&ldquo;",
+        "data": "2026-03-02",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24sC2lIVQJQtMXnMTWD7z6xOCd3Ary9h1MyRHRBz7RKdHQhJVNadNQq/4284"
+      },
+      {
+        "nr": "18",
+        "titlu": "Modificarea HCL Balș nr.137/31.08.2023 privind aprobarea proiectului &rdquo;Construire ansamblu de locuințe nZEB plus pentru tineri &icirc;n Orașul Balș județul Olt&rdquo; și a cheltuielilor actualizate aferente proiectului",
+        "data": "2026-03-02",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24iazm5bYDhMavYuwc7kkW5uPiEectMemL5oEQ67mZVjIZQHH7dYjd2/4284"
+      },
+      {
+        "nr": "17",
+        "titlu": "Aprobarea actualizării indicatorilor tehnico-economici și a devizului general pentru obiectivul de investiții: &ldquo;Construire ansamblu de locuințe nZEB plus pentru tineri &icirc;n orașul Balș, județul Olt&rdquo;",
+        "data": "2026-03-02",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24PKtsxgpVxFHitC1fKHcC6ueis78wvYDPwYrR/t4Xm1ipl4Vs19iBG/4284"
+      },
+      {
+        "nr": "27",
+        "titlu": "Aprobarea &icirc;ncheierii unui act adițional la contractul de &icirc;nchiriere nr.12489 din 25.05.2021 av&acirc;nd ca obiect &icirc;nchirierea spațiului din Balș, str.N.Bălcescu nr.6B, jud.Olt",
+        "data": "2026-02-27",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%242yqT2z6Mym8DjLTNrQNbB.DgPD/R3qMCS/4PXXr8PLvZT9w6TRqT6/4284"
+      },
+      {
+        "nr": "26",
+        "titlu": "Aprobarea Protocolului de colaborare &ndash;cadru &icirc;ncheiat &icirc;ntre Serviciul Public de Gestionare a C&acirc;inilor Fără Stăp&acirc;n Balș și U.A.T. Comuna Slătioara",
+        "data": "2026-02-27",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24YAXCqFk2MNMk3zj7h3j2jeXLO799SYvj2uv.suYJhpIzGxsj3n2wW/4284"
+      },
+      {
+        "nr": "25",
+        "titlu": "Atestarea inventarului bunurilor care alcătuiesc domeniul privat al orașului Balș, județul Olt",
+        "data": "2026-02-27",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24O3duDQtiDH1ubz6Z1DhFwOGiA7BIZqUxHniWK.dj5XH0N8MZoEPN./4284"
+      },
+      {
+        "nr": "24",
+        "titlu": "Nominalizarea de către Consiliul Local al orasului Bals a doi consilieri locali care vor avea calitatea de evaluatori &icirc;n cadrul comisiei de evaluare a performanțelor profesionale individuale ale secretarului general al UAT Oras Bals,județul Olt",
+        "data": "2026-02-27",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24CBGT1zTkPH5aH.7lWU/jZeydBFArT05oDOu8GPMOo6KFLDaWLGDRm/4284"
+      },
+      {
+        "nr": "23",
+        "titlu": "&Icirc;ncetarea contractului de concesiune nr.6433/01.04.2019, &icirc;ncheiat &icirc;ntre Primăria orașului Balș &icirc;n calitate de concendent și Aga Anastasia &Icirc;ntreprindere Individuală, &icirc;n calitate de concesionar",
+        "data": "2026-02-27",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24dGNGoJAOeFlYd14x3fdmXOJsuSOLBu4JRm2y1oGhatIEI0Tid/7r./4284"
+      },
+      {
+        "nr": "22",
+        "titlu": "Modificarea organigramei și a statului de funcții ale Clubului Sportiv Orășenesc Balș",
+        "data": "2026-02-27",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24ePluta830L5A4e5SR9NFJOI6eB.QfjxOigtDpM8H88eWleVnlpot2/4284"
+      },
+      {
+        "nr": "21",
+        "titlu": "Modificarea organigramei și a statului de funcții ale aparatului de specialitate al Primarului Orașului Balș",
+        "data": "2026-02-27",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%2483guA0yuigG4rgdDcXgDAuryS0r1g/t1cOfW.q1E6mQM..8QECPDi/4284"
+      },
+      {
+        "nr": "16",
+        "titlu": "Aprobarea Statului de funcții și a numărului de posturi pe anul 2026 ( anexa nr.1), cu modificările solicitate &icirc;n raportul de specialitate , a structurii organizatorice ( anexa nr.2), a organigramei (anexa nr.3) pentru Spitalul Orășenesc Balș",
+        "data": "2026-02-13",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24oaYPc5TsViI1G.7Q7GhJV.LS2C4H3wWth/ispHrPWgQWlqG2/3.be/4284"
+      },
+      {
+        "nr": "15",
+        "titlu": "Aprobarea Programului de acțiune comunitară destinat prevenirii și combaterii riscului de sărăcie și excluziune socială, la nivelul orașului Balș, județul Olt, pentru anul 2026",
+        "data": "2026-02-13",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24WJWt/QWb/TjZe8oxkf3QO.Gj9O8WFxcQxT7CuR7UnkHyVuGMey9ny/4284"
+      },
+      {
+        "nr": "14",
+        "titlu": "Modificarea organigramei și a statului de funcții la Cabinetele medicale școlare din cadrul Primăriei orașului Balș",
+        "data": "2026-02-13",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%2442XseQFP9pjLrzOWC4kqdOL8nHbYLrX8lXlDU4dmvFp87oixEwMpq/4284"
+      },
+      {
+        "nr": "13",
+        "titlu": "Modificarea organigramei și a statului de funcții din cadrul Clubului Sportiv Orășenesc Balș",
+        "data": "2026-02-13",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24pBkNCVKMe7ot0yczvKUwxeqQXbuS7mdkEMHQE2EaRWhEkAzOxiWbm/4284"
+      },
+      {
+        "nr": "12",
+        "titlu": "Modificarea organigramei și a statului de funcții din cadrul Primăriei orașului Balș &ndash; Serviciul Public Comunitar de Evidență a Persoanelor Balș",
+        "data": "2026-02-13",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%245kYp2j7cWC5UgOy8JNSrwuKi.fFmtJT6/piTNfIsy5.MUm8bnlBky/4284"
+      },
+      {
+        "nr": "11",
+        "titlu": "Aprobarea rambursării anticipate a sumei de 1.937.682,00 lei &icirc;n urma contractării unui &icirc;mprumut &icirc;n valoare de 1.937.682,00 lei &icirc;n conformitate cu prevederile art. 1 din Ordonanţa de urgenţă a Guvernului nr. 25/2025 pentru asigurarea unor &icirc;mprumuturi din Trezoreria Statului",
+        "data": "2026-02-13",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24cWUDR3CjEFK954lX58BIIezbKvPdxE53N0CAfcUtbANWyXNs71lNC/4284"
+      },
+      {
+        "nr": "10",
+        "titlu": "Aprobarea Protocoalelor de colaborare &ndash;cadru &icirc;ncheiate &icirc;ntre Serviciul Public de Gestionare a C&acirc;inilor Fără Stăp&acirc;n Balș și U.A.T. Comuna Brebeni și U.A.T. Comuna C&acirc;rlogani",
+        "data": "2026-01-29",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24I63C6ZhITu8S2LSAIJju6e2buhjrBupAx2NPwFN9FssetGaPmnOhy/4284"
+      },
+      {
+        "nr": "9",
+        "titlu": "Alegerea președintelui de ședință al Consiliului Local al Orașului Balș",
+        "data": "2026-01-29",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24ACkHlsym3r5/W3EopeoIj.vDr1Wm1RNaKrvQd7eHtpnY1JjTKUU.i/4284"
+      },
+      {
+        "nr": "8",
+        "titlu": "Aprobarea procedurii și a criteriilor de ocupare a postului de director - Clubul Sportiv Orășenesc Balș",
+        "data": "2026-01-29",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24DTyW1PgOZJ8qcHKcROiaI.tkCmOTQfz2jsvUhrggsLt6kg39NO7w6/4284"
+      },
+      {
+        "nr": "7",
+        "titlu": "Restabilirea salariilor de bază pentru personalul contractual din cadrul Clubului Sportiv Orășenesc Balș",
+        "data": "2026-01-29",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%247TwcXrNO9h/WM44rWLfLn.kCJ0JdJWRAYg8B2INBgfWRFTJgZJ/0e/4284"
+      },
+      {
+        "nr": "6",
+        "titlu": "Aprobarea cotei autoritătii publice locale (%) , &icirc;n vederea calculării chiriei aplicabilă titularilor contractelor de &icirc;nchiriere care au &icirc;mplinit v&acirc;rsta de 35 de ani și a cotei (%) pentru administrarea , &icirc;ntreținerea , reparatiile curente și reparatiile capitale și a fișei de calcul a cuantumului chiriei pentru anul 2026, pentru locuintele A.N.L. situate &icirc;n orasul Bals , strada Nicolae Bălcescu nr.152 , respectiv bl.T6, strada Nicolae Bălcescu nr.135B, jud. Olt",
+        "data": "2026-01-29",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%240qBJ.BZReldQh46Y8iCd3O.wVwlssVRUwvkN0/LKysE93xuA0xeoa/4284"
+      },
+      {
+        "nr": "5",
+        "titlu": "Stabilirea numărului de posturi de asistenți personali ai persoanelor cu handicap grav, la nivelul Primăriei orașului Balș, pentru anul 2026",
+        "data": "2026-01-29",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24GBCsUX84NxnRuMd15NK/tesfQiKYfhJXD4qppUOQn/0nwF6q7aOuu/4284"
+      },
+      {
+        "nr": "4",
+        "titlu": "Aprobarea Planului de acţiuni sau de lucrări de interes local pe anul 2026, pentru beneficiarii de venit minim de incluziune, conform Legii nr.196/2016 privind venitul minim de incluziune,cu modificările și completările ulterioare",
+        "data": "2026-01-29",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%245o5xcogW72GdLr48DpvPF.TFu0ldESNcQdeXc5GpEgdKwdKQt.2ay/4284"
+      },
+      {
+        "nr": "3",
+        "titlu": "Aprobarea structurii organizatorice ( anexa nr.1) și a organigramei (anexa nr.2) ale Spitalului Orășenesc Balș, pentru anul 2026",
+        "data": "2026-01-12",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24f2.tFocEzdLOMYMWnAodpuvVtiPKXpH1tVv.TZ/FiABCibj6PlHde/4284"
+      },
+      {
+        "nr": "2",
+        "titlu": "Aprobarea acoperirii definitive din excedentul anilor precedenți a deficitului pe anul 2025",
+        "data": "2026-01-12",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24/XaEhjT.quviYNjPYTAgOOQUjPskdfCRMXwWxYKksss9nYVzaeI36/4284"
+      },
+      {
+        "nr": "1",
+        "titlu": "Rectificarea bugetului local, virări de credite și rectificarea listei de investiții pe anul 2025",
+        "data": "2026-01-12",
+        "tip": "Normativ",
+        "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24D0/z1JS0f/4WfQiYd/nmYujuFPcFO0oqk5AUqO2VI8eNgwcLkohE6/4284"
+      }
+    ],
+    "sessions2026": [
+      {
+        "titlu": "PV ședință ordinară CL 09.06.26",
+        "data": "2026-06-12",
+        "pdf": "https://bals.regista.ro/counter/download/phpJGemhE%242y%2410%246DJtWupkrFMyIGixPgdwV.y4kIq8fx4iooVDsdIMsN6Y2GykHtemu"
+      },
+      {
+        "titlu": "PV ședință ordinară CL 28.05.26",
+        "data": "2026-06-02",
+        "pdf": "https://bals.regista.ro/counter/download/phpdIpKBD%242y%2410%24V8yEzCAfA9zkvaak.ApWfeMhkYedSk3B5Em5o2SRCV/8X18/Xp.fK"
+      },
+      {
+        "titlu": "PV ședință extraordinară CL 21.05.26",
+        "data": "2026-05-25",
+        "pdf": "https://bals.regista.ro/counter/download/phpiLJCeL%242y%2410%24ITdwLXqKhbU8r1t6q2OHROCkLeMm1YnDfFLk5wA49enRj70v1mbJO"
+      },
+      {
+        "titlu": "PV ședință extraordinară CL 18.05.26",
+        "data": "2026-05-21",
+        "pdf": "https://bals.regista.ro/counter/download/phpHIPEfH%242y%2410%24s5.X2kwEpd/fF773XrauP.OJwuEv9Rb/6Ak5qOoAioUmK5zPkBy7."
+      },
+      {
+        "titlu": "PV ședință ordinară CL 11.05.2026",
+        "data": "2026-05-15",
+        "pdf": "https://bals.regista.ro/counter/download/phpELocLM%242y%2410%24Y/8RBnBVUBtz.rl7YG/JMu8FVVzvAuIG4JD5mU4FL9s.HrmstAXZy"
+      },
+      {
+        "titlu": "PV șed. ordinară CL 29.04",
+        "data": "2026-05-06",
+        "pdf": "https://bals.regista.ro/counter/download/phpFLBGAH%242y%2410%24r7bVO3i/65YbfKbpbUUhKuOLZ6tN349.Ue12G00.ZqirnYC7WDYge"
+      },
+      {
+        "titlu": "PV șed. extraord. CL 17.04",
+        "data": "2026-04-22",
+        "pdf": "https://bals.regista.ro/counter/download/phpLogNmk%242y%2410%24Mv/LpJu0tw6jeMLgVE5UWOBV3qoGyRCd.YfYa2CF5m1zqm9oeHjQG"
+      },
+      {
+        "titlu": "PV ședință ordinară CL 31.03.2016",
+        "data": "2026-04-03",
+        "pdf": "https://bals.regista.ro/counter/download/phpNlFFIM%242y%2410%24IsT.3ObRHMrD6mqzsc.KO.xYfyuH7GAbA0eyZzFB6qXP6bJgGeqlO"
+      },
+      {
+        "titlu": "P.V. ședință ordinară CL 23.03.2026",
+        "data": "2026-03-25",
+        "pdf": "https://bals.regista.ro/counter/download/phpFbhCaN%242y%2410%248JAp4NPJQVT69CbKi2xtjOw3yQbIJdbhvltkLeL8yq0jb6qYOhpTe"
+      },
+      {
+        "titlu": "P.V. Ședință extraordinară de îndată CL 10.03",
+        "data": "2026-03-12",
+        "pdf": "https://bals.regista.ro/counter/download/phpijcDLe%242y%2410%24TWaBHf6QSRY59Se9HgkI2eid9MY7wDhWJOj5/x9UcEemD75IhzEFG"
+      },
+      {
+        "titlu": "P.V. ședință ordinară CL 27.02.2026",
+        "data": "2026-03-04",
+        "pdf": "https://bals.regista.ro/counter/download/%242y%2410%24F1gJYOlwOZ76.FBFJZG5oeWsrHMJ6cduy2TkVJt0rbst.QCwJfEMq"
+      },
+      {
+        "titlu": "P.V. ședință extraordinară de îndată CL 24.02.2026",
+        "data": "2026-02-27",
+        "pdf": "https://bals.regista.ro/counter/download/%242y%2410%24cCmIgeWSHRQqk3TGfGCfSOF2I9jIP3YEuOQB/VIvZNi.guQUKE3qK"
+      },
+      {
+        "titlu": "PV ședință ordinară CL 13.02.2026",
+        "data": "2026-02-17",
+        "pdf": "https://bals.regista.ro/counter/download/phpmgOBAh%242y%2410%242pFFFIpF/HnGXjcy2PLqV.ogKWKNQV/cdhislHPpCbHMwukXViZOG"
+      },
+      {
+        "titlu": "PV Ședință ordinară CL 29.01.2026",
+        "data": "2026-02-03",
+        "pdf": "https://bals.regista.ro/counter/download/phpHJmNKL%242y%2410%24QqNp2TYWbmR7nnq684edJO743W2Ce.58db0h6eYFbyLDMVu3QKwm6"
+      },
+      {
+        "titlu": "P.V. Sedință extraordinară CL 12.01",
+        "data": "2026-01-15",
+        "pdf": "https://bals.regista.ro/counter/download/phpmaBOdh%242y%2410%248Nt2Zvwai/1isbwb0.Xbiux7MejZVdPq7kvHKQ26B/tu7NxwSE/.u"
+      }
+    ]
+  }
+]
