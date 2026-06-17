@@ -28,7 +28,8 @@ CREATE TABLE IF NOT EXISTS uat (
 -- Date inițiale pentru UAT-urile pilot
 INSERT OR IGNORE INTO uat (siruta, name, county, type, platform, regista_subdomain, official_site_url, population, council_size)
 VALUES
-    ('106065', 'Bobicești', 'Olt', 'comună', 'regista', 'bobicesti', 'https://www.bobicesti.ro', 2456, 9),
+    -- population = alegători înscriși conform ROAEP 2024; council_size conform OUG 57/2019 Art.89(2)(b)
+    ('106065', 'Bobicești', 'Olt', 'comună', 'regista', 'bobicesti', 'https://www.bobicesti.ro', 2624, 11),
     ('106249', 'Balș',      'Olt', 'oraș',   'regista', 'bals',      'https://bals.regista.ro', 18200, 17);
 
 -- ─────────────────────────────────────────────
@@ -213,6 +214,27 @@ CREATE TABLE IF NOT EXISTS election_result (
     source              TEXT DEFAULT 'bec'
 );
 
+-- Date seed componență politică 2024 (sursa: api.rezultatevot.ro BallotId=116)
+INSERT OR IGNORE INTO council_group (uat_id, party, party_full, seats, mandate_start, source)
+SELECT u.id, 'PSD', 'Partidul Social Democrat',         8, '2024-06-09', 'roaep' FROM uat u WHERE u.siruta='106065';
+INSERT OR IGNORE INTO council_group (uat_id, party, party_full, seats, mandate_start, source)
+SELECT u.id, 'AUR', 'Alianța pentru Unirea Românilor',  2, '2024-06-09', 'roaep' FROM uat u WHERE u.siruta='106065';
+INSERT OR IGNORE INTO council_group (uat_id, party, party_full, seats, mandate_start, source)
+SELECT u.id, 'PNL', 'Partidul Național Liberal',         1, '2024-06-09', 'roaep' FROM uat u WHERE u.siruta='106065';
+
+INSERT OR IGNORE INTO council_group (uat_id, party, party_full, seats, mandate_start, source)
+SELECT u.id, 'PSD', 'Partidul Social Democrat',         10, '2024-06-09', 'roaep' FROM uat u WHERE u.siruta='106249';
+INSERT OR IGNORE INTO council_group (uat_id, party, party_full, seats, mandate_start, source)
+SELECT u.id, 'PNL', 'Partidul Național Liberal',         5, '2024-06-09', 'roaep' FROM uat u WHERE u.siruta='106249';
+INSERT OR IGNORE INTO council_group (uat_id, party, party_full, seats, mandate_start, source)
+SELECT u.id, 'AUR', 'Alianța pentru Unirea Românilor',  2, '2024-06-09', 'roaep' FROM uat u WHERE u.siruta='106249';
+
+-- Date seed alegeri 2024 (prezență + voturi valabile)
+INSERT OR IGNORE INTO election_result (uat_id, election_date, registered_voters, votes_cast, valid_votes, turnout_pct, source)
+SELECT u.id, '2024-06-09', 2624, 1521, 1481, 57.97, 'roaep' FROM uat u WHERE u.siruta='106065';
+INSERT OR IGNORE INTO election_result (uat_id, election_date, registered_voters, votes_cast, valid_votes, turnout_pct, source)
+SELECT u.id, '2024-06-09', 16422, 7769, 7358, 47.31, 'roaep' FROM uat u WHERE u.siruta='106249';
+
 -- ─────────────────────────────────────────────
 -- VIEW: Dashboard consiliu local
 -- ─────────────────────────────────────────────
@@ -236,8 +258,14 @@ pv_2026 AS (
 ),
 party_composition AS (
     SELECT uat_id,
-           GROUP_CONCAT(party || ':' || seats, ' | ') AS party_breakdown,
-           SUM(seats) AS seats_accounted
+           SUM(seats) AS seats_accounted,
+           -- GROUP_CONCAT fără ORDER BY în SQLite — subquery pentru sortare descrescătoare
+           (SELECT GROUP_CONCAT(g2.party || ':' || g2.seats, ' | ')
+            FROM (SELECT party, seats FROM council_group g3
+                  WHERE g3.uat_id = council_group.uat_id
+                    AND g3.mandate_start = '2024-06-09'
+                  ORDER BY g3.seats DESC) g2
+           ) AS party_breakdown
     FROM council_group
     WHERE mandate_start = '2024-06-09'
     GROUP BY uat_id
