@@ -1,6 +1,6 @@
 -- Schema baza de date pentru platforma civică „Alesul meu local"
 -- Motor: SQLite (MVP) — migrabil la PostgreSQL fără modificări majore
--- Versiune: 0.1
+-- Versiune: 0.2
 
 PRAGMA journal_mode = WAL;
 PRAGMA foreign_keys = ON;
@@ -18,16 +18,18 @@ CREATE TABLE IF NOT EXISTS uat (
                             CHECK(platform IN ('regista','wordpress','custom','none','unknown')),
     regista_subdomain   TEXT UNIQUE,            -- ex: 'bobicesti'
     official_site_url   TEXT,
+    population          INTEGER,               -- populație conform recensamant 2021
+    council_size        INTEGER,               -- nr. consilieri conform OUG 57/2019
     active              INTEGER DEFAULT 1,
     created_at          DATETIME DEFAULT CURRENT_TIMESTAMP,
     updated_at          DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
 -- Date inițiale pentru UAT-urile pilot
-INSERT OR IGNORE INTO uat (siruta, name, county, type, platform, regista_subdomain, official_site_url)
+INSERT OR IGNORE INTO uat (siruta, name, county, type, platform, regista_subdomain, official_site_url, population, council_size)
 VALUES
-    ('106065', 'Bobicești', 'Olt', 'comună', 'regista', 'bobicesti', 'https://www.bobicesti.ro'),
-    ('106249', 'Balș',      'Olt', 'oraș',   'regista', 'bals',      'https://bals.regista.ro');
+    ('106065', 'Bobicești', 'Olt', 'comună', 'regista', 'bobicesti', 'https://www.bobicesti.ro', 2456, 9),
+    ('106249', 'Balș',      'Olt', 'oraș',   'regista', 'bals',      'https://bals.regista.ro', 18200, 17);
 
 -- ─────────────────────────────────────────────
 -- 2. Registre Regista descoperite per UAT
@@ -73,15 +75,16 @@ SELECT u.id, 'minute', 8508, 'alte-documente/minutele-in-care-se-consemneaza-in-
 -- 3. Consilieri locali
 -- ─────────────────────────────────────────────
 CREATE TABLE IF NOT EXISTS councillor (
-    id              INTEGER PRIMARY KEY,
-    uat_id          INTEGER NOT NULL REFERENCES uat(id) ON DELETE CASCADE,
-    name            TEXT NOT NULL,
-    name_normalized TEXT,
-    party           TEXT,
-    mandate_start   DATE,
-    mandate_end     DATE,
-    active          INTEGER DEFAULT 1,
-    created_at      DATETIME DEFAULT CURRENT_TIMESTAMP,
+    id                      INTEGER PRIMARY KEY,
+    uat_id                  INTEGER NOT NULL REFERENCES uat(id) ON DELETE CASCADE,
+    name                    TEXT NOT NULL,
+    name_normalized         TEXT,
+    party                   TEXT,
+    electoral_list_position INTEGER,           -- poziție pe lista electorală BEC 2024
+    mandate_start           DATE,
+    mandate_end             DATE,
+    active                  INTEGER DEFAULT 1,
+    created_at              DATETIME DEFAULT CURRENT_TIMESTAMP,
     UNIQUE(uat_id, name_normalized, mandate_start)
 );
 
@@ -180,3 +183,80 @@ CREATE TABLE IF NOT EXISTS collector_run (
     docs_new        INTEGER DEFAULT 0,
     error           TEXT
 );
+
+-- ─────────────────────────────────────────────
+-- 10. Componența politică a consiliului local
+--     (sursa: BEC/AEP — rezultate alegeri locale 2024)
+-- ─────────────────────────────────────────────
+CREATE TABLE IF NOT EXISTS council_group (
+    id              INTEGER PRIMARY KEY,
+    uat_id          INTEGER NOT NULL REFERENCES uat(id) ON DELETE CASCADE,
+    party           TEXT NOT NULL,             -- abreviere: PSD, PNL, USR, etc.
+    party_full      TEXT,                      -- denumire completă
+    seats           INTEGER NOT NULL,
+    mandate_start   DATE NOT NULL,             -- data alegerilor: 2024-06-09
+    source          TEXT DEFAULT 'bec',
+    UNIQUE(uat_id, party, mandate_start)
+);
+
+-- ─────────────────────────────────────────────
+-- 11. Rezultate alegeri locale (prezență, voturi)
+-- ─────────────────────────────────────────────
+CREATE TABLE IF NOT EXISTS election_result (
+    id                  INTEGER PRIMARY KEY,
+    uat_id              INTEGER NOT NULL REFERENCES uat(id) ON DELETE CASCADE,
+    election_date       DATE NOT NULL,
+    registered_voters   INTEGER,
+    votes_cast          INTEGER,
+    valid_votes         INTEGER,
+    turnout_pct         REAL,
+    source              TEXT DEFAULT 'bec'
+);
+
+-- ─────────────────────────────────────────────
+-- VIEW: Dashboard consiliu local
+-- ─────────────────────────────────────────────
+CREATE VIEW IF NOT EXISTS v_council_dashboard AS
+WITH hcl_2026 AS (
+    SELECT uat_id,
+           COUNT(*) AS hcl_count_2026,
+           COUNT(CASE WHEN character = 'Normativ'   THEN 1 END) AS normative_2026,
+           COUNT(CASE WHEN character = 'Individual' THEN 1 END) AS individual_2026,
+           MIN(adopted_date) AS first_hcl_2026,
+           MAX(adopted_date) AS last_hcl_2026
+    FROM resolution
+    WHERE adopted_date LIKE '2026%'
+    GROUP BY uat_id
+),
+pv_2026 AS (
+    SELECT uat_id, COUNT(*) AS sessions_2026
+    FROM document
+    WHERE doc_type = 'pv' AND doc_date LIKE '2026%'
+    GROUP BY uat_id
+),
+party_composition AS (
+    SELECT uat_id,
+           GROUP_CONCAT(party || ':' || seats, ' | ') AS party_breakdown,
+           SUM(seats) AS seats_accounted
+    FROM council_group
+    WHERE mandate_start = '2024-06-09'
+    GROUP BY uat_id
+)
+SELECT
+    u.name,
+    u.county,
+    u.type,
+    u.population,
+    u.council_size,
+    COALESCE(pc.party_breakdown, 'BEC: nedisponibil') AS componenta_partide,
+    COALESCE(h.hcl_count_2026,  0) AS hcl_2026,
+    COALESCE(h.normative_2026,  0) AS normative_2026,
+    COALESCE(h.individual_2026, 0) AS individuale_2026,
+    COALESCE(s.sessions_2026,   0) AS sedinte_pv_2026,
+    h.first_hcl_2026,
+    h.last_hcl_2026
+FROM uat u
+LEFT JOIN hcl_2026          h  ON h.uat_id  = u.id
+LEFT JOIN pv_2026           s  ON s.uat_id  = u.id
+LEFT JOIN party_composition pc ON pc.uat_id = u.id
+WHERE u.active = 1;
