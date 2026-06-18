@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
   <title>Alesul meu local — monitorizare consilieri</title>
   <meta name="description" content="Urmărește activitatea consilierilor locali din România: hotărâri, ședințe, componență politică.">
   <script src="https://cdn.tailwindcss.com"></script>
@@ -346,7 +349,8 @@ function dashboard() {
         return p || '.';
       })();
       try {
-        this.uats = await fetch(base + '/data/uats.json').then(r => r.json());
+        // cache-bust: forțează date proaspete la fiecare încărcare
+        this.uats = await fetch(base + '/data/uats.json?v=' + Date.now(), {cache: 'no-store'}).then(r => r.json());
         if (this.uats.length) this.selectUat(this.uats[0].siruta);
       } catch(e) { console.error(e); }
       this.loading = false;
