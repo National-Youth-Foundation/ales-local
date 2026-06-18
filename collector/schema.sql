@@ -1,6 +1,6 @@
 -- Schema baza de date pentru platforma civică „Alesul meu local"
 -- Motor: SQLite (MVP) — migrabil la PostgreSQL fără modificări majore
--- Versiune: 0.2
+-- Versiune: 0.3 (+ voturi nominale din PV: resolution.votes_* + tabel vote)
 
 PRAGMA journal_mode = WAL;
 PRAGMA foreign_keys = ON;
@@ -103,6 +103,12 @@ CREATE TABLE IF NOT EXISTS resolution (
     initiators          TEXT,               -- JSON: ["Chitez Ilie"]
     pdf_url             TEXT,
     pdf_hash            TEXT,
+    -- numărători de vot extrase din PV (pv_votes.py); NULL dacă PV nu le consemnează
+    votes_for           INTEGER,
+    votes_against       INTEGER,
+    votes_abstain       INTEGER,
+    votes_present       INTEGER,
+    vote_source         TEXT,               -- 'pv' dacă extras din proces-verbal
     source_registry_id  INTEGER REFERENCES regista_registry(id),
     created_at          DATETIME DEFAULT CURRENT_TIMESTAMP
 );
