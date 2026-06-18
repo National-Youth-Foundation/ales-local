@@ -208,7 +208,7 @@
           <div class="px-4 py-3 hover:bg-slate-50 transition-colors flex items-start gap-3">
             <span class="text-xs font-mono text-slate-400 shrink-0 mt-0.5 w-16 text-right truncate" x-text="hcl.nr||'—'"></span>
             <div class="flex-1 min-w-0">
-              <p class="text-sm text-slate-800 line-clamp-2 leading-snug" x-text="hcl.titlu||'Fără titlu'"></p>
+              <p class="text-sm text-slate-800 line-clamp-2 leading-snug" :title="hcl.titlu" x-text="cap(hcl.titlu)||'Fără titlu'"></p>
               <div class="flex items-center gap-2 mt-1 flex-wrap">
                 <span class="text-xs text-slate-400" x-text="formatDate(hcl.data)"></span>
                 <span x-show="hcl.tip" :class="hcl.tip==='Normativ'?'bg-blue-50 text-blue-700':'bg-amber-50 text-amber-700'" class="chip" x-text="hcl.tip"></span>
@@ -411,7 +411,7 @@
                             :title="d.vf+' pentru, '+d.va+' împotrivă, '+d.vab+' abțineri'"
                             x-text="d.vf+'–'+d.va+'–'+d.vab"></span>
                     </div>
-                    <p class="text-xs text-slate-700 leading-snug mt-0.5 group-hover:text-blue-700" x-text="d.titlu||'(fără titlu)'"></p>
+                    <p class="text-sm text-slate-700 leading-snug mt-1 group-hover:text-blue-700" x-text="cap(d.titlu)||'(fără titlu)'"></p>
                   </div>
                   <svg class="w-4 h-4 text-slate-300 group-hover:text-blue-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
@@ -551,6 +551,7 @@ function dashboard() {
       return this.selected.hcl2026.filter(h => (h.titlu||'').toLowerCase().includes(q) || (h.nr||'').toLowerCase().includes(q));
     },
     initials(name) { return (name||'').split(/\s+/).filter(Boolean).slice(0,2).map(w=>w[0].toUpperCase()).join(''); },
+    cap(s) { return s ? s.charAt(0).toUpperCase() + s.slice(1) : s; },
     partyColor: partyColorFn,
     darken: darkenHex,
     ucFirst(s) { return s ? s[0].toUpperCase()+s.slice(1) : ''; },

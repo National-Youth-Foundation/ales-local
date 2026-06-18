@@ -12,6 +12,7 @@ Utilizare:
 """
 
 import re
+import html
 import json
 import sqlite3
 import argparse
@@ -49,9 +50,16 @@ REGISTRY_TO_DOC_TYPE = {
 # Utilități
 # ─────────────────────────────────────────────
 
-def extract_timestamp(html: str) -> Optional[int]:
+def clean_text(t: Optional[str]) -> Optional[str]:
+    """Decodează entitățile HTML (&icirc; → î, &ldquo; → ") și normalizează spațiile."""
+    if not t:
+        return t
+    return re.sub(r"\s+", " ", html.unescape(t)).strip()
+
+
+def extract_timestamp(raw: str) -> Optional[int]:
     """Extrage unix timestamp din codul JS generat de moment.js în răspunsul DataTables."""
-    match = re.search(r"moment\.unix\((\d+)\)", html)
+    match = re.search(r"moment\.unix\((\d+)\)", raw)
     return int(match.group(1)) if match else None
 
 
@@ -226,7 +234,7 @@ def save_hcl(db: sqlite3.Connection, uat_id: int, reg_row_id: int,
                 uat_id,
                 regista_id,
                 item.get("approvedRegistrationNumberPattern"),
-                meta.get("approvedCouncilDecisionTitle"),
+                clean_text(meta.get("approvedCouncilDecisionTitle")),
                 adopted_date,
                 item.get("character"),
                 initiators,
@@ -261,7 +269,7 @@ def save_document(db: sqlite3.Connection, uat_id: int, reg_row_id: int,
         action_html = item.get("4") or item.get("3") or item.get("5") or ""
         pdf_url = extract_pdf_url(action_html, base_url)
 
-        title = item.get("otherDetails") or item.get("subject") or ""
+        title = clean_text(item.get("otherDetails") or item.get("subject") or "")
 
         db.execute(
             """
@@ -269,7 +277,7 @@ def save_document(db: sqlite3.Connection, uat_id: int, reg_row_id: int,
                 (uat_id, regista_doc_id, doc_type, title, doc_date, pdf_url, source_registry_id)
             VALUES (?,?,?,?,?,?,?)
             """,
-            (uat_id, regista_id, doc_type, title.strip(), doc_date, pdf_url, reg_row_id),
+            (uat_id, regista_id, doc_type, title, doc_date, pdf_url, reg_row_id),
         )
         new_count += 1
 
