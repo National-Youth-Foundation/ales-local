@@ -21,8 +21,8 @@
     ::-webkit-scrollbar { width:5px; height:5px; }
     ::-webkit-scrollbar-thumb { background:#cbd5e1; border-radius:3px; }
     .chip { display:inline-flex; align-items:center; gap:3px; font-size:.68rem; font-weight:700; padding:1px 7px; border-radius:99px; }
-    .councillor-card:hover .councillor-party { opacity:1; }
-    .councillor-party { opacity:.7; transition:opacity .15s; }
+    .councillor-card { cursor:pointer; }
+    .councillor-card:active { transform: scale(.98); }
   </style>
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans antialiased">
@@ -30,22 +30,22 @@
 <!-- HEADER -->
 <header class="bg-white border-b border-slate-200 sticky top-0 z-40 shadow-sm">
   <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between gap-3">
-    <div class="flex items-center gap-2">
+    <a href="#" class="flex items-center gap-2 shrink-0">
       <div class="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center text-white text-sm font-bold select-none">AL</div>
       <div>
         <div class="font-bold text-slate-900 text-sm leading-tight">Alesul meu local</div>
         <div class="text-xs text-slate-400 hidden sm:block">monitorizare consilieri locali · prototip</div>
       </div>
-    </div>
+    </a>
     <div class="flex items-center gap-2 flex-wrap justify-end">
       <template x-for="u in uats" :key="u.siruta">
-        <button @click="selectUat(u.siruta)"
-          :class="selected?.siruta===u.siruta
+        <a :href="'#u/'+u.siruta"
+          :class="selected?.siruta===u.siruta && view==='dashboard'
             ? 'bg-blue-600 text-white'
             : 'bg-slate-100 text-slate-600 hover:bg-slate-200'"
           class="px-3 py-1.5 rounded-full text-xs font-semibold transition-colors">
           <span x-text="u.name"></span>
-        </button>
+        </a>
       </template>
     </div>
   </div>
@@ -56,8 +56,8 @@
   <div class="w-7 h-7 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
 </div>
 
-<!-- MAIN -->
-<main x-show="!loading && selected" x-cloak class="max-w-5xl mx-auto px-4 py-5 fade-in">
+<!-- ════════════ DASHBOARD ════════════ -->
+<main x-show="!loading && view==='dashboard' && selected" x-cloak class="max-w-5xl mx-auto px-4 py-5 fade-in">
 
   <!-- UAT hero -->
   <div class="bg-gradient-to-br from-blue-700 to-blue-900 text-white rounded-2xl px-5 py-5 mb-5">
@@ -69,13 +69,16 @@
           jud. <span x-text="selected?.county"></span> &middot;
           <span x-text="(selected?.population||0).toLocaleString('ro')"></span> alegători (2024)
         </p>
+        <p class="text-blue-100 text-xs mt-1" x-show="selected?.mayor">
+          Primar: <b x-text="selected?.mayor"></b>
+          <span x-show="selected?.mayor_party" x-text="'('+selected?.mayor_party+')'"></span>
+        </p>
       </div>
       <a :href="selected?.official_site_url" target="_blank" rel="noopener"
          class="text-xs bg-white/20 hover:bg-white/30 text-white px-3 py-1.5 rounded-full transition-colors">
         site oficial ↗
       </a>
     </div>
-    <!-- Stat chips -->
     <div class="mt-4 flex flex-wrap gap-2">
       <div class="bg-white/15 rounded-xl px-3 py-2 text-center min-w-[64px]">
         <div class="text-xl font-black" x-text="selected?.hcl2026?.length||0"></div>
@@ -96,13 +99,11 @@
     </div>
   </div>
 
-  <!-- COMPONENȚĂ POLITICĂ + VOTURI -->
+  <!-- COMPONENȚĂ POLITICĂ -->
   <div class="bg-white rounded-2xl border border-slate-100 p-5 mb-4 card-hover">
     <h3 class="font-bold text-sm text-slate-700 uppercase tracking-wide mb-4">
-      Componență politică
-      <span class="text-slate-400 font-normal normal-case">(alegeri 9 iun. 2024)</span>
+      Componență politică <span class="text-slate-400 font-normal normal-case">(alegeri 9 iun. 2024)</span>
     </h3>
-
     <div class="space-y-3">
       <template x-for="p in selected?.council" :key="p.party">
         <div>
@@ -114,11 +115,10 @@
             <div class="flex items-center gap-3 text-xs text-slate-500 shrink-0">
               <span><b class="text-slate-800" x-text="p.seats"></b> mandate</span>
               <span x-show="p.votes"><b class="text-slate-800" x-text="(p.votes||0).toLocaleString('ro')"></b> voturi</span>
-              <span x-show="p.votePct" class="chip" :style="'background:'+partyColor(p.party)+'22; color:'+partyColor(p.party)" x-text="p.votePct+'%'"></span>
             </div>
           </div>
           <div class="bg-slate-100 rounded-full h-4 overflow-hidden">
-            <div class="h-4 rounded-full party-bar flex items-center justify-end pr-2 gap-1"
+            <div class="h-4 rounded-full party-bar flex items-center justify-end pr-2"
                  :style="'width:'+Math.max(4,(p.seats/(selected.council_size||1)*100)).toFixed(1)+'%; background:'+partyColor(p.party)">
               <span class="text-white text-[10px] font-bold" x-text="p.seats"></span>
             </div>
@@ -126,14 +126,11 @@
         </div>
       </template>
     </div>
-
-    <!-- Scaune vizuale -->
     <div class="mt-4 flex flex-wrap gap-1.5">
       <template x-for="p in selected?.council" :key="p.party">
         <template x-for="(_, i) in Array.from({length: p.seats})" :key="i">
           <div class="w-6 h-6 rounded-full flex items-center justify-center text-white text-[9px] font-bold shadow-sm"
-               :style="'background:'+partyColor(p.party)"
-               :title="p.party+': '+p.partyFull">
+               :style="'background:'+partyColor(p.party)" :title="p.party+': '+p.partyFull">
             <span x-text="p.party.substring(0,1)"></span>
           </div>
         </template>
@@ -144,81 +141,63 @@
 
   <!-- TABS -->
   <div class="bg-white rounded-2xl border border-slate-100 overflow-hidden mb-4">
-    <div class="flex border-b border-slate-100 overflow-x-auto" style="scrollbar-width:none;-webkit-overflow-scrolling:touch">
-      <button @click="tab='councillors'"
-              :class="tab==='councillors'?'tab-active':'text-slate-500 hover:text-slate-700'"
-              class="px-4 py-3 text-sm whitespace-nowrap transition-colors">
-        Consilieri
-        <span class="ml-1 bg-slate-100 text-slate-600 text-[10px] font-bold px-1.5 py-0.5 rounded-full"
-              x-text="selected?.councillors?.length||0"></span>
+    <div class="flex border-b border-slate-100 overflow-x-auto" style="scrollbar-width:none">
+      <button @click="tab='councillors'" :class="tab==='councillors'?'tab-active':'text-slate-500 hover:text-slate-700'" class="px-4 py-3 text-sm whitespace-nowrap transition-colors">
+        Consilieri <span class="ml-1 bg-slate-100 text-slate-600 text-[10px] font-bold px-1.5 py-0.5 rounded-full" x-text="selected?.councillors?.length||0"></span>
       </button>
-      <button @click="tab='hcl'"
-              :class="tab==='hcl'?'tab-active':'text-slate-500 hover:text-slate-700'"
-              class="px-4 py-3 text-sm whitespace-nowrap transition-colors">
-        Hotărâri 2026
-        <span class="ml-1 bg-blue-50 text-blue-700 text-[10px] font-bold px-1.5 py-0.5 rounded-full"
-              x-text="selected?.hcl2026?.length||0"></span>
+      <button @click="tab='hcl'" :class="tab==='hcl'?'tab-active':'text-slate-500 hover:text-slate-700'" class="px-4 py-3 text-sm whitespace-nowrap transition-colors">
+        Hotărâri 2026 <span class="ml-1 bg-blue-50 text-blue-700 text-[10px] font-bold px-1.5 py-0.5 rounded-full" x-text="selected?.hcl2026?.length||0"></span>
       </button>
-      <button @click="tab='sessions'"
-              :class="tab==='sessions'?'tab-active':'text-slate-500 hover:text-slate-700'"
-              class="px-4 py-3 text-sm whitespace-nowrap transition-colors">
-        Ședințe 2026
-        <span class="ml-1 bg-indigo-50 text-indigo-700 text-[10px] font-bold px-1.5 py-0.5 rounded-full"
-              x-text="selected?.sessions2026?.length||0"></span>
+      <button @click="tab='sessions'" :class="tab==='sessions'?'tab-active':'text-slate-500 hover:text-slate-700'" class="px-4 py-3 text-sm whitespace-nowrap transition-colors">
+        Ședințe 2026 <span class="ml-1 bg-indigo-50 text-indigo-700 text-[10px] font-bold px-1.5 py-0.5 rounded-full" x-text="selected?.sessions2026?.length||0"></span>
       </button>
-      <button @click="tab='elections'"
-              :class="tab==='elections'?'tab-active':'text-slate-500 hover:text-slate-700'"
-              class="px-4 py-3 text-sm whitespace-nowrap transition-colors">
+      <button @click="tab='elections'" :class="tab==='elections'?'tab-active':'text-slate-500 hover:text-slate-700'" class="px-4 py-3 text-sm whitespace-nowrap transition-colors">
         Alegeri 2024
       </button>
     </div>
 
-    <!-- ── Tab Consilieri ── -->
+    <!-- Tab Consilieri -->
     <div x-show="tab==='councillors'" class="p-4">
-      <!-- Filter partid -->
       <div class="flex flex-wrap gap-2 mb-4">
-        <button @click="partyFilter=''"
-                :class="partyFilter===''?'bg-slate-800 text-white':'bg-slate-100 text-slate-600 hover:bg-slate-200'"
-                class="px-3 py-1 rounded-full text-xs font-semibold transition-colors">
+        <button @click="partyFilter=''" :class="partyFilter===''?'bg-slate-800 text-white':'bg-slate-100 text-slate-600 hover:bg-slate-200'" class="px-3 py-1 rounded-full text-xs font-semibold transition-colors">
           Toți (<span x-text="selected?.councillors?.length||0"></span>)
         </button>
         <template x-for="p in selected?.council" :key="p.party">
           <button @click="partyFilter=partyFilter===p.party?'':p.party"
-                  :class="partyFilter===p.party?'text-white':'text-white/80 hover:text-white'"
-                  :style="partyFilter===p.party ? 'background:'+partyColor(p.party) : 'background:'+partyColor(p.party)+'99'"
-                  class="px-3 py-1 rounded-full text-xs font-semibold transition-all">
+                  :style="partyFilter===p.party?'background:'+partyColor(p.party):'background:'+partyColor(p.party)+'99'"
+                  class="px-3 py-1 rounded-full text-xs font-semibold text-white transition-all">
             <span x-text="p.party"></span> (<span x-text="p.seats"></span>)
           </button>
         </template>
       </div>
-
-      <!-- Grilă consilieri -->
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
-        <template x-for="c in filteredCouncillors()" :key="c.name">
-          <div class="councillor-card flex items-center gap-3 bg-slate-50 rounded-xl px-3 py-2.5 border border-slate-100">
-            <!-- Avatar inițiale -->
-            <div class="w-9 h-9 rounded-full shrink-0 flex items-center justify-center text-white text-xs font-bold shadow-sm"
-                 :style="'background:'+partyColor(c.party)">
+        <template x-for="c in filteredCouncillors()" :key="c.slug">
+          <a :href="'#c/'+selected.siruta+'/'+c.slug"
+             class="councillor-card flex items-center gap-3 bg-slate-50 hover:bg-blue-50 rounded-xl px-3 py-2.5 border border-slate-100 hover:border-blue-200 transition-all">
+            <div class="w-9 h-9 rounded-full shrink-0 flex items-center justify-center text-white text-xs font-bold shadow-sm" :style="'background:'+partyColor(c.party)">
               <span x-text="initials(c.name)"></span>
             </div>
             <div class="min-w-0 flex-1">
               <div class="text-sm font-semibold text-slate-800 truncate" x-text="c.name"></div>
-              <div class="councillor-party text-xs text-slate-500 flex items-center gap-1 mt-0.5">
+              <div class="text-xs text-slate-500 flex items-center gap-1 mt-0.5">
                 <span class="w-2 h-2 rounded-full shrink-0" :style="'background:'+partyColor(c.party)"></span>
                 <span x-text="c.party"></span>
+                <span x-show="c.commissions?.length" class="text-slate-400" x-text="'· '+c.commissions.length+' comisii'"></span>
               </div>
             </div>
-          </div>
+            <svg class="w-4 h-4 text-slate-300 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+            </svg>
+          </a>
         </template>
       </div>
-      <p class="text-xs text-slate-400 mt-3">Sursa: site oficial primărie (mandat 2024–2028)</p>
+      <p class="text-xs text-slate-400 mt-3">Apasă pe un consilier pentru profil · sursa: site oficial primărie (mandat 2024–2028)</p>
     </div>
 
-    <!-- ── Tab HCL ── -->
+    <!-- Tab HCL -->
     <div x-show="tab==='hcl'">
       <div class="px-4 py-3 bg-slate-50 border-b border-slate-100">
-        <input x-model="hclSearch" type="search" placeholder="Caută hotărâre..."
-               class="w-full text-sm bg-white border border-slate-200 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-300">
+        <input x-model="hclSearch" type="search" placeholder="Caută hotărâre..." class="w-full text-sm bg-white border border-slate-200 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-300">
       </div>
       <div class="overflow-y-auto max-h-[440px] divide-y divide-slate-50">
         <template x-for="(hcl,i) in filteredHcl()" :key="i">
@@ -228,16 +207,11 @@
               <p class="text-sm text-slate-800 line-clamp-2 leading-snug" x-text="hcl.titlu||'Fără titlu'"></p>
               <div class="flex items-center gap-2 mt-1 flex-wrap">
                 <span class="text-xs text-slate-400" x-text="formatDate(hcl.data)"></span>
-                <span x-show="hcl.tip"
-                      :class="hcl.tip==='Normativ'?'bg-blue-50 text-blue-700':'bg-amber-50 text-amber-700'"
-                      class="chip" x-text="hcl.tip"></span>
+                <span x-show="hcl.tip" :class="hcl.tip==='Normativ'?'bg-blue-50 text-blue-700':'bg-amber-50 text-amber-700'" class="chip" x-text="hcl.tip"></span>
               </div>
             </div>
-            <a x-show="hcl.pdf" :href="hcl.pdf" target="_blank" rel="noopener"
-               class="shrink-0 text-blue-400 hover:text-blue-600 mt-0.5" title="PDF">
-              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3M3 17V7a2 2 0 012-2h6l2 2h4a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
-              </svg>
+            <a x-show="hcl.pdf" :href="hcl.pdf" target="_blank" rel="noopener" class="shrink-0 text-blue-400 hover:text-blue-600 mt-0.5" title="PDF">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3M3 17V7a2 2 0 012-2h6l2 2h4a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
             </a>
           </div>
         </template>
@@ -245,72 +219,44 @@
       </div>
     </div>
 
-    <!-- ── Tab Ședințe ── -->
+    <!-- Tab Ședințe -->
     <div x-show="tab==='sessions'" class="overflow-y-auto max-h-[480px] divide-y divide-slate-50">
       <template x-for="(s,i) in (selected?.sessions2026||[])" :key="i">
         <div class="px-4 py-3 hover:bg-slate-50 transition-colors flex items-center gap-3">
-          <div class="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-700 text-xs font-bold shrink-0"
-               x-text="(selected.sessions2026.length - i)"></div>
+          <div class="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-700 text-xs font-bold shrink-0" x-text="(selected.sessions2026.length - i)"></div>
           <div class="flex-1 min-w-0">
             <p class="text-sm font-medium text-slate-800 truncate" x-text="s.titlu||'Proces-verbal'"></p>
             <p class="text-xs text-slate-400" x-text="formatDate(s.data)"></p>
           </div>
-          <a x-show="s.pdf" :href="s.pdf" target="_blank" rel="noopener"
-             class="text-blue-400 hover:text-blue-600 shrink-0">
-            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3M3 17V7a2 2 0 012-2h6l2 2h4a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
-            </svg>
+          <a x-show="s.pdf" :href="s.pdf" target="_blank" rel="noopener" class="text-blue-400 hover:text-blue-600 shrink-0">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3M3 17V7a2 2 0 012-2h6l2 2h4a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
           </a>
         </div>
       </template>
-      <div x-show="(selected?.sessions2026||[]).length===0" class="py-10 text-center text-sm text-slate-400">
-        Nicio ședință disponibilă
-      </div>
+      <div x-show="(selected?.sessions2026||[]).length===0" class="py-10 text-center text-sm text-slate-400">Nicio ședință disponibilă</div>
     </div>
 
-    <!-- ── Tab Alegeri ── -->
+    <!-- Tab Alegeri -->
     <div x-show="tab==='elections'" class="p-5">
       <template x-if="selected?.election2024?.election_date">
         <div>
-          <h4 class="text-sm font-semibold text-slate-700 mb-4">
-            Consiliu local — alegeri <span x-text="selected.election2024.election_date"></span>
-          </h4>
+          <h4 class="text-sm font-semibold text-slate-700 mb-4">Consiliu local — alegeri <span x-text="selected.election2024.election_date"></span></h4>
           <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-5">
-            <div class="bg-slate-50 rounded-xl p-3">
-              <div class="text-lg font-black" x-text="(selected.election2024.registered_voters||0).toLocaleString('ro')"></div>
-              <div class="text-xs text-slate-500 mt-0.5">alegători înscriși</div>
-            </div>
-            <div class="bg-slate-50 rounded-xl p-3">
-              <div class="text-lg font-black" x-text="(selected.election2024.votes_cast||0).toLocaleString('ro')"></div>
-              <div class="text-xs text-slate-500 mt-0.5">voturi exprimate</div>
-            </div>
-            <div class="bg-blue-50 rounded-xl p-3 col-span-2 sm:col-span-1">
-              <div class="text-lg font-black text-blue-700" x-text="(selected.election2024.turnout_pct||0).toFixed(2)+'%'"></div>
-              <div class="text-xs text-slate-500 mt-0.5">prezență la vot</div>
-            </div>
+            <div class="bg-slate-50 rounded-xl p-3"><div class="text-lg font-black" x-text="(selected.election2024.registered_voters||0).toLocaleString('ro')"></div><div class="text-xs text-slate-500 mt-0.5">alegători înscriși</div></div>
+            <div class="bg-slate-50 rounded-xl p-3"><div class="text-lg font-black" x-text="(selected.election2024.votes_cast||0).toLocaleString('ro')"></div><div class="text-xs text-slate-500 mt-0.5">voturi exprimate</div></div>
+            <div class="bg-blue-50 rounded-xl p-3 col-span-2 sm:col-span-1"><div class="text-lg font-black text-blue-700" x-text="(selected.election2024.turnout_pct||0).toFixed(2)+'%'"></div><div class="text-xs text-slate-500 mt-0.5">prezență la vot</div></div>
           </div>
-          <div class="mb-1 flex justify-between text-xs text-slate-500">
-            <span>prezență</span>
-            <span x-text="(selected.election2024.turnout_pct||0).toFixed(1)+'%'"></span>
-          </div>
-          <div class="bg-slate-100 rounded-full h-3 mb-5 overflow-hidden">
-            <div class="h-3 rounded-full bg-blue-500 party-bar"
-                 :style="'width:'+(selected.election2024.turnout_pct||0)+'%'"></div>
-          </div>
-          <!-- Voturi per partid -->
           <h4 class="text-sm font-semibold text-slate-700 mb-3">Voturi per partid</h4>
           <div class="space-y-2">
             <template x-for="p in selected?.council" :key="p.party">
               <div x-show="p.votes" class="flex items-center gap-2">
                 <span class="text-xs font-bold w-10 text-right" :style="'color:'+partyColor(p.party)" x-text="p.party"></span>
                 <div class="flex-1 bg-slate-100 rounded-full h-5 overflow-hidden">
-                  <div class="h-5 rounded-full party-bar flex items-center px-2 gap-1"
-                       :style="'width:'+p.votePct+'%; background:'+partyColor(p.party)">
+                  <div class="h-5 rounded-full party-bar flex items-center px-2" :style="'width:'+p.votePct+'%; background:'+partyColor(p.party)">
                     <span class="text-white text-[10px] font-bold" x-text="p.votePct+'%'"></span>
                   </div>
                 </div>
-                <span class="text-xs text-slate-500 w-16 text-right shrink-0"
-                      x-text="(p.votes||0).toLocaleString('ro')+' v.'"></span>
+                <span class="text-xs text-slate-500 w-16 text-right shrink-0" x-text="(p.votes||0).toLocaleString('ro')+' v.'"></span>
               </div>
             </template>
           </div>
@@ -320,7 +266,6 @@
     </div>
   </div>
 
-  <!-- footer -->
   <div class="text-center text-xs text-slate-400 pb-6">
     Date din Monitorul Oficial Local (regista.ro) &middot;
     <a href="https://github.com/National-Youth-Foundation/ales-local" target="_blank" class="underline hover:text-slate-600">cod sursă</a>
@@ -328,7 +273,105 @@
   </div>
 </main>
 
-<!-- empty state -->
+<!-- ════════════ PROFIL CONSILIER ════════════ -->
+<main x-show="!loading && view==='profile' && profile" x-cloak class="max-w-2xl mx-auto px-4 py-5 fade-in">
+
+  <!-- Back -->
+  <a :href="'#u/'+selected?.siruta" class="inline-flex items-center gap-1.5 text-sm text-slate-500 hover:text-slate-800 mb-4 transition-colors">
+    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+    Înapoi la <span class="font-semibold" x-text="selected?.name"></span>
+  </a>
+
+  <!-- Profile header -->
+  <div class="rounded-2xl px-5 py-6 mb-4 text-white" :style="'background:linear-gradient(135deg,'+partyColor(profile?.party)+','+darken(partyColor(profile?.party))+')'">
+    <div class="flex items-center gap-4">
+      <div class="w-20 h-20 rounded-2xl bg-white/20 backdrop-blur flex items-center justify-center text-2xl font-black shrink-0 shadow-lg">
+        <span x-text="initials(profile?.name)"></span>
+      </div>
+      <div class="min-w-0">
+        <h1 class="text-2xl font-extrabold leading-tight" x-text="profile?.name"></h1>
+        <div class="flex items-center gap-2 mt-1.5 flex-wrap">
+          <span class="bg-white/25 px-2.5 py-0.5 rounded-full text-xs font-bold" x-text="profile?.party"></span>
+          <span class="text-sm text-white/90">Consilier local</span>
+        </div>
+        <p class="text-xs text-white/75 mt-1.5">
+          Mandat <span x-text="(profile?.mandateStart||'').substring(0,4)"></span>–<span x-text="profile?.mandateEnd"></span>
+          &middot; <span x-text="selected?.name"></span>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact & transparență -->
+  <div class="bg-white rounded-2xl border border-slate-100 p-5 mb-4">
+    <h3 class="font-bold text-sm text-slate-700 uppercase tracking-wide mb-3">Contact & transparență</h3>
+    <div class="space-y-2.5">
+      <a x-show="profile?.email" :href="'mailto:'+profile?.email"
+         class="flex items-center gap-3 text-sm text-slate-700 hover:text-blue-700 group">
+        <span class="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center text-blue-600 shrink-0">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        </span>
+        <span class="group-hover:underline truncate" x-text="profile?.email"></span>
+      </a>
+      <a :href="selected?.declaratii_url || selected?.official_site_url" target="_blank" rel="noopener"
+         class="flex items-center gap-3 text-sm text-slate-700 hover:text-blue-700 group">
+        <span class="w-8 h-8 rounded-lg bg-emerald-50 flex items-center justify-center text-emerald-600 shrink-0">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+        </span>
+        <span class="group-hover:underline">Declarații de avere și interese ↗</span>
+      </a>
+      <div x-show="!profile?.email" class="flex items-center gap-3 text-sm text-slate-400">
+        <span class="w-8 h-8 rounded-lg bg-slate-50 flex items-center justify-center shrink-0">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        </span>
+        <span>Email nepublicat pe site-ul oficial</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Comisii -->
+  <div x-show="profile?.commissions?.length" class="bg-white rounded-2xl border border-slate-100 p-5 mb-4">
+    <h3 class="font-bold text-sm text-slate-700 uppercase tracking-wide mb-3">Comisii de specialitate</h3>
+    <div class="space-y-2">
+      <template x-for="(c,i) in profile?.commissions" :key="i">
+        <div class="flex items-center gap-3 bg-slate-50 rounded-xl px-3 py-2.5">
+          <span :class="c.rol==='președinte'?'bg-amber-100 text-amber-700':c.rol==='secretar'?'bg-blue-100 text-blue-700':'bg-slate-200 text-slate-600'"
+                class="chip shrink-0 capitalize" x-text="c.rol"></span>
+          <span class="text-sm text-slate-700" x-text="c.comisie"></span>
+        </div>
+      </template>
+    </div>
+  </div>
+
+  <!-- Activitate -->
+  <div class="bg-white rounded-2xl border border-slate-100 p-5 mb-4">
+    <h3 class="font-bold text-sm text-slate-700 uppercase tracking-wide mb-3">Activitate</h3>
+    <div class="grid grid-cols-2 gap-3 mb-3">
+      <div class="bg-slate-50 rounded-xl p-3 text-center">
+        <div class="text-xl font-black text-slate-300">—</div>
+        <div class="text-xs text-slate-500 mt-0.5">prezență ședințe</div>
+      </div>
+      <div class="bg-slate-50 rounded-xl p-3 text-center">
+        <div class="text-xl font-black text-slate-300">—</div>
+        <div class="text-xs text-slate-500 mt-0.5">voturi exprimate</div>
+      </div>
+    </div>
+    <div class="flex items-start gap-2 bg-amber-50 rounded-xl px-3 py-2.5">
+      <svg class="w-4 h-4 text-amber-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      <p class="text-xs text-amber-700 leading-relaxed">
+        Prezența și voturile individuale se extrag din procesele-verbale ale ședințelor (în lucru).
+        Momentan PV-urile consemnează doar votul colectiv („aprobat în unanimitate").
+      </p>
+    </div>
+  </div>
+
+  <div class="text-center text-xs text-slate-400 pb-6">
+    Profil generat din date publice &middot;
+    <a href="https://github.com/National-Youth-Foundation/ales-local" target="_blank" class="underline hover:text-slate-600">cod sursă</a>
+  </div>
+</main>
+
+<!-- empty -->
 <div x-show="!loading && !selected && uats.length>0" x-cloak class="max-w-xl mx-auto px-4 py-16 text-center fade-in">
   <div class="text-5xl mb-3">🏛️</div>
   <p class="text-slate-500">Selectează un UAT din meniu</p>
@@ -337,59 +380,74 @@
 <script>
 const COLORS = {PSD:'#DC2626',PNL:'#CA8A04',AUR:'#92400E',USR:'#2563EB',UDMR:'#16A34A',PRO:'#7C3AED'};
 const partyColorFn = p => COLORS[p] || '#64748b';
+function darkenHex(hex) {
+  const n = parseInt((hex||'#64748b').slice(1),16);
+  const r = Math.max(0,((n>>16)&255)-40), g = Math.max(0,((n>>8)&255)-40), b = Math.max(0,(n&255)-40);
+  return '#' + ((1<<24)+(r<<16)+(g<<8)+b).toString(16).slice(1);
+}
 
 function dashboard() {
   return {
-    uats:[], selected:null, loading:true,
+    uats:[], selected:null, profile:null, view:'dashboard', loading:true,
     tab:'councillors', hclSearch:'', partyFilter:'',
 
     async init() {
-      const base = (() => {
-        const p = location.pathname.replace(/\/[^/]*$/, '');
-        return p || '.';
-      })();
+      const base = (() => { const p = location.pathname.replace(/\/[^/]*$/, ''); return p || '.'; })();
       try {
-        // cache-bust: forțează date proaspete la fiecare încărcare
-        this.uats = await fetch(base + '/data/uats.json?v=' + Date.now(), {cache: 'no-store'}).then(r => r.json());
-        if (this.uats.length) this.selectUat(this.uats[0].siruta);
+        this.uats = await fetch(base + '/data/uats.json?v=' + Date.now(), {cache:'no-store'}).then(r => r.json());
       } catch(e) { console.error(e); }
       this.loading = false;
+      this.applyRoute();
+      window.addEventListener('hashchange', () => { this.applyRoute(); window.scrollTo({top:0,behavior:'instant'}); });
     },
 
-    selectUat(siruta) {
-      this.selected = this.uats.find(u => u.siruta===siruta) || null;
-      this.tab = 'councillors';
-      this.hclSearch = '';
-      this.partyFilter = '';
+    applyRoute() {
+      const parts = location.hash.replace(/^#\/?/, '').split('/').filter(Boolean);
+      // #c/<siruta>/<slug> → profil
+      if (parts[0]==='c' && parts[1] && parts[2]) {
+        const uat = this.uats.find(u => u.siruta===parts[1]);
+        const c = uat && (uat.councillors||[]).find(x => x.slug===parts[2]);
+        if (uat && c) {
+          if (this.selected?.siruta !== uat.siruta) this.resetUatUi();
+          this.selected = uat; this.profile = c; this.view = 'profile';
+          document.title = c.name + ' — Alesul meu local';
+          return;
+        }
+      }
+      // #u/<siruta> → dashboard UAT
+      if (parts[0]==='u' && parts[1]) {
+        const uat = this.uats.find(u => u.siruta===parts[1]);
+        if (uat) {
+          if (this.selected?.siruta !== uat.siruta) this.resetUatUi();
+          this.selected = uat; this.profile = null; this.view = 'dashboard';
+          document.title = uat.name + ' — Alesul meu local';
+          return;
+        }
+      }
+      // default
+      if (!this.selected && this.uats.length) this.selected = this.uats[0];
+      this.profile = null; this.view = 'dashboard';
+      document.title = 'Alesul meu local — monitorizare consilieri';
     },
+
+    resetUatUi() { this.tab='councillors'; this.hclSearch=''; this.partyFilter=''; },
 
     filteredCouncillors() {
       if (!this.selected?.councillors) return [];
       if (!this.partyFilter) return this.selected.councillors;
       return this.selected.councillors.filter(c => c.party===this.partyFilter);
     },
-
     filteredHcl() {
       if (!this.selected?.hcl2026) return [];
       const q = this.hclSearch.toLowerCase().trim();
       if (!q) return this.selected.hcl2026;
-      return this.selected.hcl2026.filter(h =>
-        (h.titlu||'').toLowerCase().includes(q) || (h.nr||'').toLowerCase().includes(q));
+      return this.selected.hcl2026.filter(h => (h.titlu||'').toLowerCase().includes(q) || (h.nr||'').toLowerCase().includes(q));
     },
-
-    initials(name) {
-      return name.split(/\s+/).filter(Boolean).slice(0,2).map(w=>w[0].toUpperCase()).join('');
-    },
-
+    initials(name) { return (name||'').split(/\s+/).filter(Boolean).slice(0,2).map(w=>w[0].toUpperCase()).join(''); },
     partyColor: partyColorFn,
-
+    darken: darkenHex,
     ucFirst(s) { return s ? s[0].toUpperCase()+s.slice(1) : ''; },
-
-    formatDate(d) {
-      if (!d) return '';
-      const [y,m,day] = d.split('-');
-      return `${+day} ${'ian feb mar apr mai iun iul aug sep oct nov dec'.split(' ')[+m-1]} ${y}`;
-    }
+    formatDate(d) { if (!d) return ''; const [y,m,day]=d.split('-'); return `${+day} ${'ian feb mar apr mai iun iul aug sep oct nov dec'.split(' ')[+m-1]} ${y}`; }
   };
 }
 </script>

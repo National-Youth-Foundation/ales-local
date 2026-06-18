@@ -8,6 +8,9 @@
     "council_size": 11,
     "regista_subdomain": "bobicesti",
     "official_site_url": "https://www.bobicesti.ro",
+    "mayor": "Chitez Ilie",
+    "mayor_party": "PSD",
+    "declaratii_url": null,
     "council": [
       {
         "party": "PSD",
@@ -34,47 +37,181 @@
     "councillors": [
       {
         "name": "Barbu Georgică",
-        "party": "AUR"
+        "slug": "barbu-georgica",
+        "party": "AUR",
+        "email": null,
+        "commissions": [
+          {
+            "comisie": "Agricultură, buget, urbanism",
+            "rol": "membru"
+          },
+          {
+            "comisie": "Social-cultural, învățământ, tineret",
+            "rol": "membru"
+          },
+          {
+            "comisie": "Juridică, disciplină, muncă",
+            "rol": "secretar"
+          }
+        ],
+        "mandateStart": "2024-06-09",
+        "mandateEnd": "2028"
       },
       {
         "name": "Constantin Geani Alin",
-        "party": "AUR"
+        "slug": "constantin-geani-alin",
+        "party": "AUR",
+        "email": null,
+        "commissions": [
+          {
+            "comisie": "Agricultură, buget, urbanism",
+            "rol": "membru"
+          },
+          {
+            "comisie": "Social-cultural, învățământ, tineret",
+            "rol": "secretar"
+          }
+        ],
+        "mandateStart": "2024-06-09",
+        "mandateEnd": "2028"
       },
       {
         "name": "Preda Ionuț Mircel",
-        "party": "PNL"
+        "slug": "preda-ionua-mircel",
+        "party": "PNL",
+        "email": null,
+        "commissions": [
+          {
+            "comisie": "Agricultură, buget, urbanism",
+            "rol": "secretar"
+          },
+          {
+            "comisie": "Social-cultural, învățământ, tineret",
+            "rol": "membru"
+          },
+          {
+            "comisie": "Juridică, disciplină, muncă",
+            "rol": "membru"
+          }
+        ],
+        "mandateStart": "2024-06-09",
+        "mandateEnd": "2028"
       },
       {
         "name": "Badea Marian",
-        "party": "PSD"
+        "slug": "badea-marian",
+        "party": "PSD",
+        "email": null,
+        "commissions": [
+          {
+            "comisie": "Agricultură, buget, urbanism",
+            "rol": "președinte"
+          }
+        ],
+        "mandateStart": "2024-06-09",
+        "mandateEnd": "2028"
       },
       {
         "name": "Dragomir George",
-        "party": "PSD"
+        "slug": "dragomir-george",
+        "party": "PSD",
+        "email": null,
+        "commissions": [
+          {
+            "comisie": "Social-cultural, învățământ, tineret",
+            "rol": "membru"
+          }
+        ],
+        "mandateStart": "2024-06-09",
+        "mandateEnd": "2028"
       },
       {
         "name": "Ionescu Ioan",
-        "party": "PSD"
+        "slug": "ionescu-ioan",
+        "party": "PSD",
+        "email": null,
+        "commissions": [
+          {
+            "comisie": "Agricultură, buget, urbanism",
+            "rol": "membru"
+          },
+          {
+            "comisie": "Juridică, disciplină, muncă",
+            "rol": "membru"
+          }
+        ],
+        "mandateStart": "2024-06-09",
+        "mandateEnd": "2028"
       },
       {
         "name": "Nicolae Eugenia Daniela",
-        "party": "PSD"
+        "slug": "nicolae-eugenia-daniela",
+        "party": "PSD",
+        "email": null,
+        "commissions": [
+          {
+            "comisie": "Agricultură, buget, urbanism",
+            "rol": "membru"
+          }
+        ],
+        "mandateStart": "2024-06-09",
+        "mandateEnd": "2028"
       },
       {
         "name": "Nicolae Florin",
-        "party": "PSD"
+        "slug": "nicolae-florin",
+        "party": "PSD",
+        "email": null,
+        "commissions": [
+          {
+            "comisie": "Juridică, disciplină, muncă",
+            "rol": "președinte"
+          }
+        ],
+        "mandateStart": "2024-06-09",
+        "mandateEnd": "2028"
       },
       {
         "name": "Păun Aurel",
-        "party": "PSD"
+        "slug": "paun-aurel",
+        "party": "PSD",
+        "email": null,
+        "commissions": [
+          {
+            "comisie": "Social-cultural, învățământ, tineret",
+            "rol": "președinte"
+          }
+        ],
+        "mandateStart": "2024-06-09",
+        "mandateEnd": "2028"
       },
       {
         "name": "Sologan Viorel Constantin",
-        "party": "PSD"
+        "slug": "sologan-viorel-constantin",
+        "party": "PSD",
+        "email": null,
+        "commissions": [
+          {
+            "comisie": "Juridică, disciplină, muncă",
+            "rol": "membru"
+          }
+        ],
+        "mandateStart": "2024-06-09",
+        "mandateEnd": "2028"
       },
       {
         "name": "Voicu Marinică",
-        "party": "PSD"
+        "slug": "voicu-marinica",
+        "party": "PSD",
+        "email": null,
+        "commissions": [
+          {
+            "comisie": "Agricultură, buget, urbanism",
+            "rol": "membru"
+          }
+        ],
+        "mandateStart": "2024-06-09",
+        "mandateEnd": "2028"
       }
     ],
     "election2024": {
@@ -283,6 +420,9 @@
     "council_size": 17,
     "regista_subdomain": "bals",
     "official_site_url": "https://bals.regista.ro",
+    "mayor": "Rotea Cătălin Ștefan",
+    "mayor_party": "PSD",
+    "declaratii_url": "https://primariabals.eu/declaratii-de-avere-si-interese/",
     "council": [
       {
         "party": "PSD",
@@ -309,71 +449,156 @@
     "councillors": [
       {
         "name": "Bărbulescu Eugen Iustin",
-        "party": "AUR"
+        "slug": "barbulescu-eugen-iustin",
+        "party": "AUR",
+        "email": "iustin.barbulescu@primariabals.eu",
+        "commissions": [],
+        "mandateStart": "2024-06-09",
+        "mandateEnd": "2028"
       },
       {
         "name": "Popa Valentin",
-        "party": "AUR"
+        "slug": "popa-valentin",
+        "party": "AUR",
+        "email": "valentin.popa@primariabals.eu",
+        "commissions": [],
+        "mandateStart": "2024-06-09",
+        "mandateEnd": "2028"
       },
       {
         "name": "Dumitru Anton",
-        "party": "PNL"
+        "slug": "dumitru-anton",
+        "party": "PNL",
+        "email": "anton.dumitru@primariabals.eu",
+        "commissions": [],
+        "mandateStart": "2024-06-09",
+        "mandateEnd": "2028"
       },
       {
         "name": "Grigoriu Carmen Daniela",
-        "party": "PNL"
+        "slug": "grigoriu-carmen-daniela",
+        "party": "PNL",
+        "email": "carmen.grigoriu@primariabals.eu",
+        "commissions": [],
+        "mandateStart": "2024-06-09",
+        "mandateEnd": "2028"
       },
       {
         "name": "Mohorea Ion",
-        "party": "PNL"
+        "slug": "mohorea-ion",
+        "party": "PNL",
+        "email": "ion.mohorea@primariabals.eu",
+        "commissions": [],
+        "mandateStart": "2024-06-09",
+        "mandateEnd": "2028"
       },
       {
         "name": "Statie George",
-        "party": "PNL"
+        "slug": "statie-george",
+        "party": "PNL",
+        "email": "george.statie@primariabals.eu",
+        "commissions": [],
+        "mandateStart": "2024-06-09",
+        "mandateEnd": "2028"
       },
       {
         "name": "Sticlea Ion",
-        "party": "PNL"
+        "slug": "sticlea-ion",
+        "party": "PNL",
+        "email": null,
+        "commissions": [],
+        "mandateStart": "2024-06-09",
+        "mandateEnd": "2028"
       },
       {
         "name": "Bîră Mirela Elena",
-        "party": "PSD"
+        "slug": "bira-mirela-elena",
+        "party": "PSD",
+        "email": "mirela.bira@primariabals.eu",
+        "commissions": [],
+        "mandateStart": "2024-06-09",
+        "mandateEnd": "2028"
       },
       {
         "name": "Bădănoiu Marian Ovidiu",
-        "party": "PSD"
+        "slug": "badanoiu-marian-ovidiu",
+        "party": "PSD",
+        "email": "marian.badanoiu@primariabals.eu",
+        "commissions": [],
+        "mandateStart": "2024-06-09",
+        "mandateEnd": "2028"
       },
       {
         "name": "Ciocîrlan Șerban Felicia Adelina",
-        "party": "PSD"
+        "slug": "ciocirlan-serban-felicia-adelina",
+        "party": "PSD",
+        "email": "felicia.serban@primariabals.eu",
+        "commissions": [],
+        "mandateStart": "2024-06-09",
+        "mandateEnd": "2028"
       },
       {
         "name": "Dică Marian Sorin",
-        "party": "PSD"
+        "slug": "dica-marian-sorin",
+        "party": "PSD",
+        "email": "sorin.dica@primariabals.eu",
+        "commissions": [],
+        "mandateStart": "2024-06-09",
+        "mandateEnd": "2028"
       },
       {
         "name": "Dumitru Octavian",
-        "party": "PSD"
+        "slug": "dumitru-octavian",
+        "party": "PSD",
+        "email": "octavian.dumitru@primariabals.eu",
+        "commissions": [],
+        "mandateStart": "2024-06-09",
+        "mandateEnd": "2028"
       },
       {
         "name": "Hristea Marin",
-        "party": "PSD"
+        "slug": "hristea-marin",
+        "party": "PSD",
+        "email": "marin.hristea@primariabals.eu",
+        "commissions": [],
+        "mandateStart": "2024-06-09",
+        "mandateEnd": "2028"
       },
       {
         "name": "Matei Mirela",
-        "party": "PSD"
+        "slug": "matei-mirela",
+        "party": "PSD",
+        "email": "mirela.matei@primariabals.eu",
+        "commissions": [],
+        "mandateStart": "2024-06-09",
+        "mandateEnd": "2028"
       },
       {
         "name": "Osiac Ion",
-        "party": "PSD"
+        "slug": "osiac-ion",
+        "party": "PSD",
+        "email": "ion.osiac@primariabals.eu",
+        "commissions": [],
+        "mandateStart": "2024-06-09",
+        "mandateEnd": "2028"
       },
       {
         "name": "Turcitu Marin",
-        "party": "PSD"
+        "slug": "turcitu-marin",
+        "party": "PSD",
+        "email": "marin.turcitu@primariabals.eu",
+        "commissions": [],
+        "mandateStart": "2024-06-09",
+        "mandateEnd": "2028"
       },
       {
         "name": "Tănasie Florin Silviu",
-        "party": "PSD"
+        "slug": "tanasie-florin-silviu",
+        "party": "PSD",
+        "email": "silviu.tanasie@primariabals.eu",
+        "commissions": [],
+        "mandateStart": "2024-06-09",
+        "mandateEnd": "2028"
       }
     ],
     "election2024": {
