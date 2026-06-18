@@ -357,8 +357,8 @@
   <!-- Fișă de vot 2026 -->
   <div class="bg-white rounded-2xl border border-slate-100 p-5 mb-4">
     <h3 class="font-bold text-sm text-slate-700 uppercase tracking-wide mb-3">
-      Fișă de vot 2026
-      <span x-show="selected?.hasVoteData" class="text-slate-400 font-normal normal-case" x-text="'· '+selected?.hclVotedCount+' hotărâri cu vot înregistrat'"></span>
+      Fișă de vot
+      <span x-show="selected?.hasVoteData" class="text-slate-400 font-normal normal-case" x-text="'· '+selected?.hclVotedCount+' hotărâri cu vot ('+selected?.voteYears+')'"></span>
     </h3>
 
     <!-- UAT cu date de vot (ex: Balș) -->
@@ -405,7 +405,7 @@
                         class="chip shrink-0 mt-0.5" x-text="d.value==='against'?'împotrivă':d.value==='abstain'?'abținere':'pentru'"></span>
                   <div class="min-w-0 flex-1">
                     <div class="flex items-center gap-2 flex-wrap">
-                      <span class="text-xs font-mono font-semibold text-slate-500" x-text="'HCL '+d.hcl+'/2026'"></span>
+                      <span class="text-xs font-mono font-semibold text-slate-500" x-text="'HCL '+d.hcl+'/'+(d.data||'').substring(0,4)"></span>
                       <span class="text-xs text-slate-400" x-text="formatDate(d.data)"></span>
                       <span class="chip bg-slate-100 text-slate-500"
                             :title="d.vf+' pentru, '+d.va+' împotrivă, '+d.vab+' abțineri'"
@@ -426,7 +426,7 @@
         <div x-show="!voteList().length" class="flex items-start gap-2 bg-emerald-50 rounded-xl px-3 py-2.5">
           <svg class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
           <p class="text-xs text-emerald-700 leading-relaxed" x-show="voteFilter==='all'">
-            A votat „pentru" (cu majoritatea) la toate cele <b x-text="selected.hclVotedCount"></b> hotărâri cu vot înregistrat în 2026. Nicio abținere sau vot împotrivă.
+            A votat „pentru" (cu majoritatea) la toate cele <b x-text="selected.hclVotedCount"></b> hotărâri cu vot înregistrat (<span x-text="selected.voteYears"></span>). Nicio abținere sau vot împotrivă.
           </p>
           <p class="text-xs text-emerald-700 leading-relaxed" x-show="voteFilter!=='all'">
             Nicio hotărâre în această categorie.
@@ -523,9 +523,10 @@ function dashboard() {
       if (f === 'abstain') return (this.profile.dissents||[]).filter(d => d.value==='abstain');
       if (f === 'against') return (this.profile.dissents||[]).filter(d => d.value==='against');
       if (f === 'majority') {
-        const diss = new Set((this.profile.dissents||[]).map(d => d.hcl));
-        return (this.selected?.hcl2026||[])
-          .filter(h => h.vf!==null && h.vf!==undefined && !diss.has(h.nr))
+        const yr = s => (s||'').substring(0,4);
+        const diss = new Set((this.profile.dissents||[]).map(d => d.hcl+'/'+yr(d.data)));
+        return (this.selected?.votedHcls||[])
+          .filter(h => !diss.has(h.nr+'/'+yr(h.data)))
           .map(h => ({value:'for', hcl:h.nr, data:h.data, titlu:h.titlu, pdf:h.pdf, vf:h.vf, va:h.va, vab:h.vab}));
       }
       return this.profile.dissents || [];   // 'all' = toate disidențele
