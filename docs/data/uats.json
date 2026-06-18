@@ -12,17 +12,69 @@
       {
         "party": "PSD",
         "partyFull": "Partidul Social Democrat",
-        "seats": 8
+        "seats": 8,
+        "votes": 1118,
+        "votePct": 75.5
       },
       {
         "party": "AUR",
         "partyFull": "Alianța pentru Unirea Românilor",
-        "seats": 2
+        "seats": 2,
+        "votes": 242,
+        "votePct": 16.3
       },
       {
         "party": "PNL",
         "partyFull": "Partidul Național Liberal",
-        "seats": 1
+        "seats": 1,
+        "votes": 121,
+        "votePct": 8.2
+      }
+    ],
+    "councillors": [
+      {
+        "name": "Barbu Georgică",
+        "party": "AUR"
+      },
+      {
+        "name": "Constantin Geani Alin",
+        "party": "AUR"
+      },
+      {
+        "name": "Preda Ionuț Mircel",
+        "party": "PNL"
+      },
+      {
+        "name": "Badea Marian",
+        "party": "PSD"
+      },
+      {
+        "name": "Dragomir George",
+        "party": "PSD"
+      },
+      {
+        "name": "Ionescu Ioan",
+        "party": "PSD"
+      },
+      {
+        "name": "Nicolae Eugenia Daniela",
+        "party": "PSD"
+      },
+      {
+        "name": "Nicolae Florin",
+        "party": "PSD"
+      },
+      {
+        "name": "Păun Aurel",
+        "party": "PSD"
+      },
+      {
+        "name": "Sologan Viorel Constantin",
+        "party": "PSD"
+      },
+      {
+        "name": "Voicu Marinică",
+        "party": "PSD"
       }
     ],
     "election2024": {
@@ -235,17 +287,93 @@
       {
         "party": "PSD",
         "partyFull": "Partidul Social Democrat",
-        "seats": 10
+        "seats": 10,
+        "votes": 4287,
+        "votePct": 61.1
       },
       {
         "party": "PNL",
         "partyFull": "Partidul Național Liberal",
-        "seats": 5
+        "seats": 5,
+        "votes": 2011,
+        "votePct": 28.7
       },
       {
         "party": "AUR",
         "partyFull": "Alianța pentru Unirea Românilor",
-        "seats": 2
+        "seats": 2,
+        "votes": 718,
+        "votePct": 10.2
+      }
+    ],
+    "councillors": [
+      {
+        "name": "Bărbulescu Eugen Iustin",
+        "party": "AUR"
+      },
+      {
+        "name": "Popa Valentin",
+        "party": "AUR"
+      },
+      {
+        "name": "Dumitru Anton",
+        "party": "PNL"
+      },
+      {
+        "name": "Grigoriu Carmen Daniela",
+        "party": "PNL"
+      },
+      {
+        "name": "Mohorea Ion",
+        "party": "PNL"
+      },
+      {
+        "name": "Statie George",
+        "party": "PNL"
+      },
+      {
+        "name": "Sticlea Ion",
+        "party": "PNL"
+      },
+      {
+        "name": "Bîră Mirela Elena",
+        "party": "PSD"
+      },
+      {
+        "name": "Bădănoiu Marian Ovidiu",
+        "party": "PSD"
+      },
+      {
+        "name": "Ciocîrlan Șerban Felicia Adelina",
+        "party": "PSD"
+      },
+      {
+        "name": "Dică Marian Sorin",
+        "party": "PSD"
+      },
+      {
+        "name": "Dumitru Octavian",
+        "party": "PSD"
+      },
+      {
+        "name": "Hristea Marin",
+        "party": "PSD"
+      },
+      {
+        "name": "Matei Mirela",
+        "party": "PSD"
+      },
+      {
+        "name": "Osiac Ion",
+        "party": "PSD"
+      },
+      {
+        "name": "Turcitu Marin",
+        "party": "PSD"
+      },
+      {
+        "name": "Tănasie Florin Silviu",
+        "party": "PSD"
       }
     ],
     "election2024": {
