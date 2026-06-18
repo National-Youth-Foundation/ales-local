@@ -139,6 +139,74 @@
     <p class="text-xs text-slate-400 mt-2">Sursa: api.rezultatevot.ro (ROAEP / Code for Romania)</p>
   </div>
 
+  <!-- ANALIZĂ AUTOMATĂ (din voturile extrase din PV) -->
+  <template x-if="selected?.analysis">
+    <div class="bg-white rounded-2xl border border-slate-100 p-5 mb-4 card-hover">
+      <div class="flex items-center gap-2 mb-3">
+        <span class="w-7 h-7 rounded-lg bg-blue-600 flex items-center justify-center text-white shrink-0">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+        </span>
+        <h3 class="font-bold text-sm text-slate-700 uppercase tracking-wide">Analiză automată</h3>
+        <span class="text-xs text-slate-400" x-text="'· '+selected.analysis.totalVoted+' voturi ('+selected.voteYears+')'"></span>
+      </div>
+
+      <!-- Headline -->
+      <div class="bg-blue-50 rounded-xl p-4 mb-4">
+        <p class="text-sm text-slate-700 leading-relaxed">
+          Majoritatea <b :style="'color:'+partyColor(selected.analysis.majorityParty)" x-text="selected.analysis.majorityParty"></b>
+          (<span x-text="selected.analysis.majoritySeats"></span> din <span x-text="selected.analysis.councilSize"></span> mandate)
+          <b x-text="selected.analysis.majorityRate<5 ? 'votează compact' : 'votează relativ unitar'"></b>
+          — doar <span x-text="selected.analysis.majorityRate"></span>% abateri.
+          <template x-if="selected.analysis.opposition.length">
+            <span>
+              Opoziția — <template x-for="(o,i) in selected.analysis.opposition" :key="o.party"><span><b :style="'color:'+partyColor(o.party)" x-text="o.seats+' consilieri '+o.party"></b><span x-show="i < selected.analysis.opposition.length-1">, </span></span></template>
+              — s-a abținut sau opus la <b x-text="Math.max(...selected.analysis.opposition.map(o=>o.rate))"></b>% din voturi.
+            </span>
+          </template>
+        </p>
+        <p class="text-sm text-slate-700 leading-relaxed mt-2">
+          Doar <b x-text="selected.analysis.unanimousPct"></b>% din hotărâri au trecut în unanimitate —
+          restul de <b x-text="selected.analysis.dividedPct"></b>% au avut cel puțin un vot diferit.
+        </p>
+      </div>
+
+      <!-- Coeziune pe partid -->
+      <p class="text-xs font-semibold text-slate-600 mb-2">Cât de des se abate fiecare partid de la majoritate</p>
+      <div class="space-y-2 mb-4">
+        <template x-for="p in selected.analysis.parties" :key="p.party">
+          <div class="flex items-center gap-3">
+            <span class="text-xs font-extrabold w-10 text-right shrink-0" :style="'color:'+partyColor(p.party)" x-text="p.party"></span>
+            <div class="flex-1 bg-slate-100 rounded-full h-5 overflow-hidden">
+              <div class="h-5 rounded-full party-bar flex items-center px-2"
+                   :style="'width:'+Math.max(3,p.dissentRate)+'%; background:'+partyColor(p.party)">
+                <span class="text-white text-[10px] font-bold whitespace-nowrap" x-text="p.dissentRate+'%'"></span>
+              </div>
+            </div>
+            <span class="text-xs text-slate-500 w-32 shrink-0 truncate" x-text="p.label"></span>
+          </div>
+        </template>
+      </div>
+
+      <!-- Cele mai disputate hotărâri -->
+      <p class="text-xs font-semibold text-slate-600 mb-2">Cele mai disputate hotărâri · apasă pentru document</p>
+      <div class="space-y-1.5">
+        <template x-for="(h,i) in selected.analysis.topContested" :key="i">
+          <a :href="h.pdf || selected?.official_site_url" target="_blank" rel="noopener"
+             class="flex items-start gap-2 bg-slate-50 hover:bg-blue-50 rounded-lg px-3 py-2.5 border border-transparent hover:border-blue-200 transition-all group">
+            <span class="chip bg-amber-100 text-amber-700 shrink-0 mt-0.5"
+                  :title="h.vf+' pentru, '+h.va+' împotrivă, '+h.vab+' abțineri'"
+                  x-text="h.vf+'–'+h.va+'–'+h.vab"></span>
+            <div class="min-w-0 flex-1">
+              <span class="text-xs font-mono font-semibold text-slate-500" x-text="'HCL '+h.nr+'/'+(h.data||'').substring(0,4)"></span>
+              <p class="text-xs text-slate-700 leading-snug mt-0.5 group-hover:text-blue-700" x-text="cap(h.titlu)||'—'"></p>
+            </div>
+          </a>
+        </template>
+      </div>
+      <p class="text-xs text-slate-400 mt-3">Calcule automate din voturile extrase din procesele-verbale. „Rata de abatere" = voturi împotrivă/abțineri ale partidului, raportate la total.</p>
+    </div>
+  </template>
+
   <!-- TABS -->
   <div class="bg-white rounded-2xl border border-slate-100 overflow-hidden mb-4">
     <div class="flex border-b border-slate-100 overflow-x-auto" style="scrollbar-width:none">

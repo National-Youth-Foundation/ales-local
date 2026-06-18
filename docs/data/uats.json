@@ -512,7 +512,8 @@
         "data": "2026-02-02",
         "pdf": "https://bobicesti.regista.ro/counter/download/phpmoLLal%242y%2410%24iX0Ll1zpK7KUeZYu/8chsu10EcluZfgpViBE3yPIkHoeerX2tYNGO"
       }
-    ]
+    ],
+    "analysis": null
   },
   {
     "siruta": "106249",
@@ -10057,6 +10058,94 @@
         "data": "2026-01-15",
         "pdf": "https://bals.regista.ro/counter/download/phpmaBOdh%242y%2410%248Nt2Zvwai/1isbwb0.Xbiux7MejZVdPq7kvHKQ26B/tu7NxwSE/.u"
       }
-    ]
+    ],
+    "analysis": {
+      "totalVoted": 283,
+      "unanimous": 46,
+      "unanimousPct": 16,
+      "divided": 237,
+      "dividedPct": 84,
+      "parties": [
+        {
+          "party": "PSD",
+          "seats": 10,
+          "totalDissent": 14,
+          "dissentRate": 0.5,
+          "label": "votează compact"
+        },
+        {
+          "party": "PNL",
+          "seats": 5,
+          "totalDissent": 566,
+          "dissentRate": 40.0,
+          "label": "opoziție frecventă"
+        },
+        {
+          "party": "AUR",
+          "seats": 2,
+          "totalDissent": 5,
+          "dissentRate": 0.9,
+          "label": "votează compact"
+        }
+      ],
+      "topContested": [
+        {
+          "nr": "46",
+          "data": "2026-04-29",
+          "titlu": "Aprobarea vânzării prin licitație publică a 2 parcele de teren extravilan, proprietate privată a orașului Balș, situate în orașul Balș, județul Olt",
+          "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24IKr2CqMe65ZgRJPWxw2qze8UahVp.vgC4KvNHPEUOxy40tCtg7zl6/4284",
+          "vf": 10,
+          "va": 0,
+          "vab": 6
+        },
+        {
+          "nr": "216",
+          "data": "2025-12-22",
+          "titlu": "Stabilirea și aprobarea impozitelor și taxelor locale începand cu anul fiscal 2026 în orașul Balș, jud.Olt",
+          "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24oGCMJkUP1K2c4yKjVUE77.YoXvUW0T86IxSwHkWt1puU8VWsZWQS./4284",
+          "vf": 11,
+          "va": 3,
+          "vab": 3
+        },
+        {
+          "nr": "20",
+          "data": "2026-03-02",
+          "titlu": "Modificarea HCL nr. 123/31.07.2024 privind aprobarea proiectului “EFICIENȚĂ ENERGETICĂ CLĂDIRE CU PATRU BLOCURI ( BLOC 6, BLOC 7, BLOC 8 , BLOC 9, SITUATE ÎN STR. NICOLAE BĂLCESCU SI I. CREANGĂ), ORAȘUL BALȘ, JUDEȚ OLT“ și a cheltuielilor actualizate aferente proiectului",
+          "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24LcKEwPLk5PFB7TvBW8JR4ey9dZiyYgRRPkm1vEMGOO0Tnw9WOG6Mq/4284",
+          "vf": 12,
+          "va": 2,
+          "vab": 3
+        },
+        {
+          "nr": "19",
+          "data": "2026-03-02",
+          "titlu": "Aprobarea actualizării indicatorilor tehnico-economici și a devizului general pentru obiectivul de investiții: “EFICIENȚĂ ENERGETICĂ CLĂDIRE CU PATRU BLOCURI ( BLOC 6, BLOC 7, BLOC 8 , BLOC 9, SITUATE ÎN STR.NICOLAE BĂLCESCU SI I. CREANGĂ), ORAȘUL BALȘ, JUDEȚ OLT“",
+          "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24sC2lIVQJQtMXnMTWD7z6xOCd3Ary9h1MyRHRBz7RKdHQhJVNadNQq/4284",
+          "vf": 12,
+          "va": 0,
+          "vab": 5
+        },
+        {
+          "nr": "18",
+          "data": "2026-03-02",
+          "titlu": "Modificarea HCL Balș nr.137/31.08.2023 privind aprobarea proiectului ”Construire ansamblu de locuințe nZEB plus pentru tineri în Orașul Balș județul Olt” și a cheltuielilor actualizate aferente proiectului",
+          "pdf": "https://bals.regista.ro/counter/download_approved_council_decision_files/%242y%2410%24iazm5bYDhMavYuwc7kkW5uPiEectMemL5oEQ67mZVjIZQHH7dYjd2/4284",
+          "vf": 12,
+          "va": 0,
+          "vab": 5
+        }
+      ],
+      "majorityParty": "PSD",
+      "majoritySeats": 10,
+      "councilSize": 17,
+      "majorityRate": 0.5,
+      "opposition": [
+        {
+          "party": "PNL",
+          "seats": 5,
+          "rate": 40.0
+        }
+      ]
+    }
   }
 ]
